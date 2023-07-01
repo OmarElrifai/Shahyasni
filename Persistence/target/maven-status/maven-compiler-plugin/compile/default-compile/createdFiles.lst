@@ -1,0 +1,11 @@
+com/shahyasni/persistence/Entities/PropertyOwners/Individual.class
+com/shahyasni/persistence/Entities/Company.class
+com/shahyasni/persistence/Entities/Post.class
+com/shahyasni/persistence/Entities/PropertyOwners/Hotel.class
+com/shahyasni/persistence/Entities/PropertyOwner.class
+com/shahyasni/persistence/Entities/Trip.class
+com/shahyasni/persistence/Entities/PropertyOwners/Camp.class
+com/shahyasni/persistence/DAOs/UserModel.class
+com/shahyasni/webResources/HelloApplication.class
+com/shahyasni/persistence/Entities/User.class
+com/shahyasni/webResources/HelloResource.class
