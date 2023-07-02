@@ -53,9 +53,9 @@ public class User implements Serializable {
     @OneToMany(mappedBy = "user")
     private List<UserBankAccount> userBankAccounts  = new ArrayList<>();
 
-    @OneToOne
-    @JoinColumn(name = "Transportation")
-    private Transportation transportation ;
+    @ManyToMany
+    @JoinTable(name = "UserTransportations",joinColumns = @JoinColumn(name = "UserID"),inverseJoinColumns = @JoinColumn(name = "TransportationID"))
+    private List<Transportation> transportation ;
 
     @OneToMany(mappedBy = "user")
     private List<LodgingBuildingComments> comments = new ArrayList<>();
@@ -161,11 +161,11 @@ public class User implements Serializable {
         this.userBankAccounts = userBankAccounts;
     }
 
-    public Transportation getTransportation() {
+    public List<Transportation> getTransportation() {
         return transportation;
     }
 
-    public void setTransportation(Transportation transportation) {
+    public void setTransportation(List<Transportation> transportation) {
         this.transportation = transportation;
     }
 

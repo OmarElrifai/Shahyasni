@@ -17,12 +17,13 @@ public class Transportation implements Serializable {
 
     }
 
-    @OneToOne(mappedBy = "transportation")
-    private User user;
 
 
     @Column(name = "TransportationCompanyName")
     private String companyName;
+
+    @Column(name = "Location")
+    private String location;
 
     @Column(name = "DepartureDate")
     private LocalDate departureDate;
@@ -43,7 +44,6 @@ public class Transportation implements Serializable {
 
 
     public String getID() { return ID; }
-    public User getUser() { return user; }
     public String getCompanyName() { return companyName; }
     public LocalDate getDepartureDate() {  return departureDate; }
     public LocalTime getDepartureTime() { return departureTime; }
@@ -57,9 +57,6 @@ public class Transportation implements Serializable {
         this.ID = ID;
     }
 
-    public void setUser(User user) {
-        this.user = user;
-    }
 
     public void setCompanyName(String companyName) {
         this.companyName = companyName;
@@ -79,5 +76,13 @@ public class Transportation implements Serializable {
 
     public void setArrivalTime(LocalTime arrivalTime) {
         this.arrivalTime = arrivalTime;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
     }
 }

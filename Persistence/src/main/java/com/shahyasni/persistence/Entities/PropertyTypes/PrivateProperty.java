@@ -36,7 +36,7 @@ public class PrivateProperty extends Property{
     @OneToMany(mappedBy = "privateProperty")
     private List<PrivatePropertyReservation> reservations = new ArrayList<>();
 
-    @Column(name = "price")
+    @Column(name = "Price")
     private double price;
 
     @Column(name = "Rating")

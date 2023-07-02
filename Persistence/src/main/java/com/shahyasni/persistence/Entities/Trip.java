@@ -39,7 +39,7 @@ public class Trip implements Serializable {
     @JoinColumn(name = "CompanyID")
     private Company company;
 
-    @Column(name = "price")
+    @Column(name = "Price")
     private double price;
 
 
