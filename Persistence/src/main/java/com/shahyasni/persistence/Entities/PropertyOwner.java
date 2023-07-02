@@ -1,5 +1,8 @@
 package com.shahyasni.persistence.Entities;
 
+import com.shahyasni.persistence.Entities.PropertyTypes.PrivateProperty;
+import com.shahyasni.persistence.Entities.SupportingDocsEntities.PrivatePropertySupportingDocs;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
@@ -21,7 +24,7 @@ public class PropertyOwner implements Serializable {
     private String lastName;
 
     @OneToMany(mappedBy = "propertyOwner")
-    private List<SupportingDocs> supportingDocuments;
+    private List<PrivateProperty> privateProperties;
 
 
     @Embedded
@@ -55,5 +58,14 @@ public class PropertyOwner implements Serializable {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+
+    public List<PrivateProperty> getPrivateProperties() {
+        return privateProperties;
+    }
+
+    public void setPrivateProperties(List<PrivateProperty> privateProperties) {
+        this.privateProperties = privateProperties;
     }
 }

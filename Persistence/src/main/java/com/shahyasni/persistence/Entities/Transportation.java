@@ -18,7 +18,6 @@ public class Transportation implements Serializable {
     }
 
     @OneToOne(mappedBy = "transportation")
-    @Column(name = "UserID")
     private User user;
 
 

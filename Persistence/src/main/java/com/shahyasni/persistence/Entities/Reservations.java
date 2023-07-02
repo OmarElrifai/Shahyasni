@@ -3,32 +3,31 @@ package com.shahyasni.persistence.Entities;
 import javax.persistence.*;
 import java.io.Serializable;
 
-@Entity
+@MappedSuperclass
 public class Reservations implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private Integer ID;
+    private Integer id;
 
-
-    @ManyToOne
-    @JoinColumn(name = "UserID")
-    private User user;
+    @Column(name = "TotalDueAmount")
+    private double totalDueAmount;
 
 
     public Reservations(){
 
     }
 
-    public Integer getId() { return ID; }
-    public User getUser() { return user; }
-
-
+    public Integer getId() { return id; }
     public void setId(Integer ID) {
-        this.ID = ID;
+        this.id = id;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public double getTotalDueAmount() {
+        return totalDueAmount;
+    }
+
+    public void setTotalDueAmount(double totalDueAmount) {
+        this.totalDueAmount = totalDueAmount;
     }
 }

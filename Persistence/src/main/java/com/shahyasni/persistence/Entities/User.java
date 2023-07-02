@@ -1,7 +1,10 @@
 package com.shahyasni.persistence.Entities;
 
+import com.shahyasni.persistence.Entities.CommentsEntities.LodgingBuildingComments;
+import com.shahyasni.persistence.Entities.ReservationType.LodgingBuildingReservation;
+import com.shahyasni.persistence.Entities.ReservationType.PrivatePropertyReservation;
+
 import javax.persistence.*;
-import javax.xml.stream.events.Comment;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.*;
@@ -38,21 +41,24 @@ public class User implements Serializable {
     private LocalDate createdDate;
 
     @OneToMany(mappedBy = "user")
-    private List<Reservations> reservations = new ArrayList<>();
+    private List<LodgingBuildingReservation> lodgingBuildingReservations = new ArrayList<>();
+
+    @OneToMany(mappedBy = "user")
+    private List<PrivatePropertyReservation> privatePropertyReservations = new ArrayList<>();
 
     @ManyToMany
     @JoinTable(name = "Trips", joinColumns = @JoinColumn(name = "TripID"), inverseJoinColumns = @JoinColumn(name = "UserID"))
     private List<Trip> trips = new ArrayList<>() ;
 
     @OneToMany(mappedBy = "user")
-    private List<BankAccount> bankAccounts = new ArrayList<>();
+    private List<UserBankAccount> userBankAccounts  = new ArrayList<>();
 
     @OneToOne
     @JoinColumn(name = "Transportation")
     private Transportation transportation ;
 
-    @OneToMany(mappedBy = "userID")
-    private List<CampComments> comment;
+    @OneToMany(mappedBy = "user")
+    private List<LodgingBuildingComments> comments = new ArrayList<>();
 
     public User(){
 
@@ -123,6 +129,45 @@ public class User implements Serializable {
 
 
 
+    public List<PrivatePropertyReservation> getPrivatePropertyReservations() {
+        return privatePropertyReservations;
+    }
+
+    public void setPrivatePropertyReservations(List<PrivatePropertyReservation> privatePropertyReservations) {
+        this.privatePropertyReservations = privatePropertyReservations;
+    }
+
+    public List<LodgingBuildingReservation> getLodgingBuildingReservations() {
+        return lodgingBuildingReservations;
+    }
+
+    public void setLodgingBuildingReservations(List<LodgingBuildingReservation> lodgingBuildingReservations) {
+        this.lodgingBuildingReservations = lodgingBuildingReservations;
+    }
+
+    public List<LodgingBuildingComments> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<LodgingBuildingComments> comments) {
+        this.comments = comments;
+    }
+
+    public List<UserBankAccount> getUserBankAccounts() {
+        return userBankAccounts;
+    }
+
+    public void setUserBankAccounts(List<UserBankAccount> userBankAccounts) {
+        this.userBankAccounts = userBankAccounts;
+    }
+
+    public Transportation getTransportation() {
+        return transportation;
+    }
+
+    public void setTransportation(Transportation transportation) {
+        this.transportation = transportation;
+    }
 
 
 //    @Override
