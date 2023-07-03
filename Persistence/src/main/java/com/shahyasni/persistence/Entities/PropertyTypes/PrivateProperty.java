@@ -1,5 +1,6 @@
 package com.shahyasni.persistence.Entities.PropertyTypes;
 
+import com.shahyasni.persistence.Entities.*;
 import com.shahyasni.persistence.Entities.CommentsEntities.PrivatePropertyComments;
 import com.shahyasni.persistence.Entities.PrivatePropertyFacilities;
 import com.shahyasni.persistence.Entities.Property;
@@ -15,6 +16,7 @@ import java.util.List;
 
 @Entity
 public class PrivateProperty extends Property{
+
 
 
     @ManyToOne
@@ -45,6 +47,9 @@ public class PrivateProperty extends Property{
     @Embedded
     private RoomFacilities roomFacilities;
 
+    @ManyToOne
+    @JoinColumn(name = "Location")
+    private Location location;
 
     public PrivateProperty(){
 
@@ -111,5 +116,13 @@ public class PrivateProperty extends Property{
 
     public void setReservations(List<PrivatePropertyReservation> reservations) {
         this.reservations = reservations;
+    }
+
+    public Location getLocation() {
+        return location;
+    }
+
+    public void setLocation(Location location) {
+        this.location = location;
     }
 }

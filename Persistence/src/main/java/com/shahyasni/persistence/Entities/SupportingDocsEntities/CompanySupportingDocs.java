@@ -11,7 +11,7 @@ import javax.persistence.ManyToOne;
 @Entity
 public class CompanySupportingDocs extends SupportingDocs {
     @ManyToOne
-    @JoinColumn(name = "CompanyID")
+    @JoinColumn(name = "Company")
     private Company company;
 
 

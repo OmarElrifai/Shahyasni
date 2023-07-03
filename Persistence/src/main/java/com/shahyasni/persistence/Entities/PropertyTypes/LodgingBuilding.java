@@ -16,6 +16,9 @@ import java.util.List;
 public class LodgingBuilding extends Property{
 
 
+    @Column(name = "Name")
+    private String name;
+
     @OneToMany(mappedBy = "lodgingBuilding")
     private List<LodgingBuildingDocs> supportingDocuments = new ArrayList<>();
 
@@ -69,6 +72,10 @@ public class LodgingBuilding extends Property{
 
     @OneToMany(mappedBy = "lodgingBuilding")
     private List<LodgingBuildingComments> comments = new ArrayList<>();
+
+    @ManyToOne
+    @JoinColumn(name = "Location")
+    private Location location;
 
     public LodgingBuilding(){
 
@@ -220,5 +227,21 @@ public class LodgingBuilding extends Property{
 
     public void setLodgingBuildingReservations(List<LodgingBuildingReservation> lodgingBuildingReservations) {
         this.lodgingBuildingReservations = lodgingBuildingReservations;
+    }
+
+    public Location getLocation() {
+        return location;
+    }
+
+    public void setLocation(Location location) {
+        this.location = location;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

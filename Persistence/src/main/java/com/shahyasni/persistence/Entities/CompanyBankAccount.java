@@ -8,7 +8,7 @@ import java.io.Serializable;
 public class CompanyBankAccount extends BankAccount{
 
    @ManyToOne
-   @JoinColumn(name = "CompanyID")
+   @JoinColumn(name = "Company")
    private Company company;
 
     public Company getCompany() {

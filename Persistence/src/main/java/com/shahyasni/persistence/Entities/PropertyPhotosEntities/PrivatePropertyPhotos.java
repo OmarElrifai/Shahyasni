@@ -11,7 +11,7 @@ import javax.persistence.ManyToOne;
 public class PrivatePropertyPhotos extends PropertyPhotos {
 
     @ManyToOne
-    @JoinColumn(name = "PrivatePropertyID")
+    @JoinColumn(name = "PrivateProperty")
     private PrivateProperty privateProperty;
 
 

@@ -14,11 +14,11 @@ public class Property implements Serializable {
     private Address address;
 
 
-    public Integer getID() { return id; }
+    public Integer getId() { return id; }
     public Address getAddress() { return address; }
 
 
-    public void setID(Integer ID) {
+    public void setId(Integer ID) {
         this.id = ID;
     }
 

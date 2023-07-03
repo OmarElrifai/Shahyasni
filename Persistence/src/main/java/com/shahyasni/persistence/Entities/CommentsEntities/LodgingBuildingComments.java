@@ -13,11 +13,11 @@ public class LodgingBuildingComments extends Comments {
 
 
     @ManyToOne
-    @JoinColumn(name = "UserID")
+    @JoinColumn(name = "User")
     private User user;
 
     @ManyToOne
-    @JoinColumn(name = "LodgingBuildingID")
+    @JoinColumn(name = "LodgingBuilding")
     private LodgingBuilding lodgingBuilding;
 
 
@@ -25,7 +25,7 @@ public class LodgingBuildingComments extends Comments {
         return user;
     }
 
-    public void setUserID(User userID) {
+    public void setUser(User user) {
         this.user = user;
     }
 

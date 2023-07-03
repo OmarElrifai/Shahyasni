@@ -27,6 +27,7 @@ com/shahyasni/ShahYasniResources/RootPath.class
 com/shahyasni/persistence/Enums/FacilityType.class
 com/shahyasni/persistence/Entities/SupportingDocsEntities/CompanySupportingDocs.class
 com/shahyasni/persistence/Entities/UserBankAccount.class
+com/shahyasni/persistence/Entities/Location.class
 com/shahyasni/persistence/Entities/PropertyOwner.class
 com/shahyasni/persistence/Entities/Property.class
 com/shahyasni/persistence/Entities/PropertyPhotos.class

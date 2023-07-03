@@ -13,12 +13,12 @@ import javax.persistence.ManyToOne;
 public class PrivatePropertyReservation extends Reservations {
 
     @ManyToOne
-    @JoinColumn(name = "UserID")
+    @JoinColumn(name = "User")
     private User user;
 
 
     @ManyToOne
-    @JoinColumn(name = "PrivatePropertyID")
+    @JoinColumn(name = "PrivateProperty")
     private PrivateProperty privateProperty;
 
 

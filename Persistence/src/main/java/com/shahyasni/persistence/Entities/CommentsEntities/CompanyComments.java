@@ -13,11 +13,11 @@ import javax.persistence.ManyToOne;
 public class CompanyComments extends Comments {
 
     @ManyToOne
-    @JoinColumn(name = "UserID")
+    @JoinColumn(name = "User")
     private User userID;
 
     @ManyToOne
-    @JoinColumn(name = "CompanyID")
+    @JoinColumn(name = "Company")
     private Company company;
 
      public User getUserID() {

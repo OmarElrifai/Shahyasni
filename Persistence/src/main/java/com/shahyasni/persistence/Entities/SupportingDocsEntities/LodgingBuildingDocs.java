@@ -13,7 +13,7 @@ public class LodgingBuildingDocs extends SupportingDocs {
 
 
     @ManyToOne
-    @JoinColumn(name = "LodgingBuildingID")
+    @JoinColumn(name = "LodgingBuilding")
     private LodgingBuilding lodgingBuilding;
 
 

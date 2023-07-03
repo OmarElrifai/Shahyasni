@@ -7,7 +7,7 @@ import java.io.Serializable;
 public class UserBankAccount extends BankAccount {
 
     @ManyToOne
-    @JoinColumn(name = "UserID")
+    @JoinColumn(name = "User")
     private User user;
 
     public UserBankAccount(){

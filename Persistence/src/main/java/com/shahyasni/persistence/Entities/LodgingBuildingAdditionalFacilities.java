@@ -17,7 +17,7 @@ public class LodgingBuildingAdditionalFacilities implements Serializable {
     private FacilityType facilityType;
 
     @ManyToOne
-    @JoinColumn(name = "CampID")
+    @JoinColumn(name = "Camp")
     private LodgingBuilding lodgingBuilding;
 
     @Column(name = "Facility")

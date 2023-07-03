@@ -8,16 +8,16 @@ public class BankAccount implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private Integer ID;
+    private Integer id;
 
     @Column(name = "AccountNo")
     private String accountNo;
 
-    public Integer getID() { return ID; }
+    public Integer getId() { return id; }
 
 
-    public void setID(Integer ID) {
-        this.ID = ID;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getAccountNo() {

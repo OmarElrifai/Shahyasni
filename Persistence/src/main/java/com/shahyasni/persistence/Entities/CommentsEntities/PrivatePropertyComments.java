@@ -12,11 +12,11 @@ public class PrivatePropertyComments extends Comments {
 
 
     @ManyToOne
-    @JoinColumn(name = "UserID")
+    @JoinColumn(name = "User")
     private User user;
 
     @ManyToOne
-    @JoinColumn(name = "PropertyID")
+    @JoinColumn(name = "Property")
     private PrivateProperty property;
 
 

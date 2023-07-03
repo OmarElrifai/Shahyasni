@@ -11,7 +11,7 @@ public class Transportation implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private String ID;
+    private Integer id;
 
     public Transportation(){
 
@@ -22,8 +22,9 @@ public class Transportation implements Serializable {
     @Column(name = "TransportationCompanyName")
     private String companyName;
 
-    @Column(name = "Location")
-    private String location;
+    @ManyToOne
+    @JoinColumn(name = "Location")
+    private Location location;
 
     @Column(name = "DepartureDate")
     private LocalDate departureDate;
@@ -37,13 +38,15 @@ public class Transportation implements Serializable {
     @Column(name = "ArrivalTime")
     private LocalTime arrivalTime;
 
+    @Column(name = "PricePerSeat")
+    private double price;
 
     @ElementCollection
-    @CollectionTable(name = "Seats", joinColumns = @JoinColumn(name = "Transportation"))
+    @CollectionTable(name = "AvailableSeats", joinColumns = @JoinColumn(name = "Transportation"))
     List<Integer> seats;
 
 
-    public String getID() { return ID; }
+    public Integer getId() { return id; }
     public String getCompanyName() { return companyName; }
     public LocalDate getDepartureDate() {  return departureDate; }
     public LocalTime getDepartureTime() { return departureTime; }
@@ -53,8 +56,8 @@ public class Transportation implements Serializable {
 
 
 
-    public void setID(String ID) {
-        this.ID = ID;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
 
@@ -78,11 +81,19 @@ public class Transportation implements Serializable {
         this.arrivalTime = arrivalTime;
     }
 
-    public String getLocation() {
+    public Location getLocation() {
         return location;
     }
 
-    public void setLocation(String location) {
+    public void setLocation(Location location) {
         this.location = location;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
     }
 }

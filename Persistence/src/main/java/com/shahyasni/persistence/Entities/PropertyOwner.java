@@ -33,7 +33,7 @@ public class PropertyOwner implements Serializable {
 
 
 
-    public Integer getID() { return id; }
+    public Integer getId() { return id; }
 
 
 
@@ -42,7 +42,7 @@ public class PropertyOwner implements Serializable {
     public String getLastName() { return lastName; }
 
 
-    public void setID(Integer ID) {
+    public void setId(Integer ID) {
 
         this.id = ID;
     }

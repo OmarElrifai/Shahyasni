@@ -38,7 +38,9 @@ public class Company  implements Serializable {
     private List<CompanyComments> comments = new ArrayList<>();;
 
 
-
+    @ManyToOne
+    @JoinColumn(name = "Location")
+    private Location location;
 
     public Integer getId() { return id; }
     public String getName() { return name; }
@@ -104,5 +106,13 @@ public class Company  implements Serializable {
 
     public void setComments(List<CompanyComments> comments) {
         this.comments = comments;
+    }
+
+    public Location getLocation() {
+        return location;
+    }
+
+    public void setLocation(Location location) {
+        this.location = location;
     }
 }

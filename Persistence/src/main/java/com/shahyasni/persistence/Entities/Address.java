@@ -1,28 +1,26 @@
 package com.shahyasni.persistence.Entities;
 
+import javax.persistence.Column;
 import javax.persistence.Embeddable;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Embeddable
 public class Address {
-    private String governorate;
-    private String city;
+
+    @Column(name = "Street")
     private String street;
+
+    @Column(name = "Block")
+    private String block;
+
+    @Column(name = "Landscape")
     private String landscape;
 
-    public String getGovernorate() { return governorate; }
-    public String getCity() { return city; }
+
     public String getStreet() { return street; }
     public String getLandscape() { return landscape; };
 
-
-
-    public void setGovernorate(String governorate) {
-        this.governorate = governorate;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
-    }
 
     public void setStreet(String street) {
         this.street = street;
@@ -30,5 +28,13 @@ public class Address {
 
     public void setLandscape(String landscape) {
         this.landscape = landscape;
+    }
+
+    public String getBlock() {
+        return block;
+    }
+
+    public void setBlock(String block) {
+        this.block = block;
     }
 }

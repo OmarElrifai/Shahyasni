@@ -14,7 +14,7 @@ public class LodgingBuildingPhotos extends PropertyPhotos {
 
 
     @ManyToOne
-    @JoinColumn(name = "LodgingBuildingID")
+    @JoinColumn(name = "LodgingBuilding")
     private LodgingBuilding lodgingBuilding;
 
 

@@ -13,7 +13,7 @@ public class PrivatePropertyFacilities implements Serializable {
     private Integer id;
 
     @ManyToOne
-    @JoinColumn(name = "PropertyID")
+    @JoinColumn(name = "Property")
     private PrivateProperty property;
 
     @Column(name = "Facility")

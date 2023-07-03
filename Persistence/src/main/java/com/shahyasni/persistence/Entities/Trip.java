@@ -1,5 +1,8 @@
 package com.shahyasni.persistence.Entities;
 
+import com.shahyasni.persistence.Entities.PropertyTypes.LodgingBuilding;
+import com.shahyasni.persistence.Entities.PropertyTypes.PrivateProperty;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -12,7 +15,7 @@ public class Trip implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private Integer ID;
+    private Integer id;
 
     @ManyToMany(mappedBy = "trips")
     private List<User> users = new ArrayList<>();
@@ -20,28 +23,35 @@ public class Trip implements Serializable {
     @Column(name = "TripDetails")
     private String tripDetails;
 
-    @Column(name = "TripDate")
-    private LocalDate dateOfTrip;
+    @ElementCollection
+    @CollectionTable(name = "Transportations",joinColumns = @JoinColumn(name="Trip"))
+    private List<Transportation> Transportation;
 
-    @Column(name = "TripHour")
-    private LocalTime time;
 
-    @Column(name = "Destination")
-    private String destination;
+    @ManyToMany
+    @JoinTable(name = "TripsLocations", joinColumns = @JoinColumn(name = "Trip"),inverseJoinColumns = @JoinColumn(name = "Location"))
+    private List<Location> location;
 
     @Column(name = "PickUpLocation")
     private String pickUpLocation;
 
-    @OneToMany(mappedBy = "tripID")
-    private List<TripPhotos> photos = new ArrayList<>();;
+    @OneToMany(mappedBy = "trip")
+    private List<TripPhotos> photos = new ArrayList<>();
 
     @ManyToOne
-    @JoinColumn(name = "CompanyID")
+    @JoinColumn(name = "Company")
     private Company company;
 
     @Column(name = "Price")
     private double price;
 
+    @ManyToMany
+    @JoinTable(name = "TripsLodgingBuilding",joinColumns = @JoinColumn(name = "Trips"),inverseJoinColumns = @JoinColumn(name = "LodgingAccomodations"))
+    private List<LodgingBuilding> lodgingBuildings;
+
+    @ManyToMany
+    @JoinTable(name = "TripsPrivateProperty",joinColumns = @JoinColumn(name = "Trips"),inverseJoinColumns = @JoinColumn(name = "PrivateBuildings"))
+    private List<PrivateProperty> privateProperties;
 
 
 
@@ -50,11 +60,11 @@ public class Trip implements Serializable {
 
     }
 
-    public Integer getID() { return ID; }
+    public Integer getId() { return id; }
     public List<User> getUsers() { return users; }
 
-    public void setID(Integer ID) {
-        this.ID = ID;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public void setUsers(List<User> users) {
@@ -69,28 +79,12 @@ public class Trip implements Serializable {
         this.company = company;
     }
 
-    public LocalDate getDateOfTrip() {
-        return dateOfTrip;
+    public List<Location> getLocation() {
+        return location;
     }
 
-    public void setDateOfTrip(LocalDate dateOfTrip) {
-        this.dateOfTrip = dateOfTrip;
-    }
-
-    public LocalTime getTime() {
-        return time;
-    }
-
-    public void setTime(LocalTime time) {
-        this.time = time;
-    }
-
-    public String getDestination() {
-        return destination;
-    }
-
-    public void setLocation(String destination) {
-        this.destination = destination;
+    public void setLocation(List<Location> location) {
+        this.location = location;
     }
 
     public String getPickUpLocation() {
@@ -123,5 +117,29 @@ public class Trip implements Serializable {
 
     public void setTripDetails(String tripDetails) {
         this.tripDetails = tripDetails;
+    }
+
+    public List<LodgingBuilding> getLodgingBuildings() {
+        return lodgingBuildings;
+    }
+
+    public void setLodgingBuildings(List<LodgingBuilding> lodgingBuildings) {
+        this.lodgingBuildings = lodgingBuildings;
+    }
+
+    public List<PrivateProperty> getPrivateProperties() {
+        return privateProperties;
+    }
+
+    public void setPrivateProperties(List<PrivateProperty> privateProperties) {
+        this.privateProperties = privateProperties;
+    }
+
+    public List<com.shahyasni.persistence.Entities.Transportation> getTransportation() {
+        return Transportation;
+    }
+
+    public void setTransportation(List<com.shahyasni.persistence.Entities.Transportation> transportation) {
+        Transportation = transportation;
     }
 }

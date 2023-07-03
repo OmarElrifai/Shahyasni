@@ -9,12 +9,19 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.*;
 
+
+
+
 @Entity
+//@NamedQuery(name = User.getUserByUserName,)
 public class User implements Serializable {
+
+    private static final String getUserByUserName = "User.username";
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private Integer ID;
+    private Integer id;
 
     @Column(name = "FirstName")
     private String fname;
@@ -47,14 +54,14 @@ public class User implements Serializable {
     private List<PrivatePropertyReservation> privatePropertyReservations = new ArrayList<>();
 
     @ManyToMany
-    @JoinTable(name = "Trips", joinColumns = @JoinColumn(name = "TripID"), inverseJoinColumns = @JoinColumn(name = "UserID"))
+    @JoinTable(name = "Trips", joinColumns = @JoinColumn(name = "Trip"), inverseJoinColumns = @JoinColumn(name = "User"))
     private List<Trip> trips = new ArrayList<>() ;
 
     @OneToMany(mappedBy = "user")
     private List<UserBankAccount> userBankAccounts  = new ArrayList<>();
 
     @ManyToMany
-    @JoinTable(name = "UserTransportations",joinColumns = @JoinColumn(name = "UserID"),inverseJoinColumns = @JoinColumn(name = "TransportationID"))
+    @JoinTable(name = "UserTransportations",joinColumns = @JoinColumn(name = "User"),inverseJoinColumns = @JoinColumn(name = "Transportation"))
     private List<Transportation> transportation ;
 
     @OneToMany(mappedBy = "user")
@@ -69,7 +76,7 @@ public class User implements Serializable {
         setCreatedDate(LocalDate.now());
     }
 
-    public Integer getID() { return this.ID; }
+    public Integer getId() { return this.id; }
     public String getfname(){ return this.fname; }
     public String getMname() { return this.mname; }
     public String getlname(){ return this.lname; }
@@ -82,9 +89,9 @@ public class User implements Serializable {
 
 
 
-    public void setID(Integer ID) {
+    public void setId(Integer id) {
 
-        this.ID = ID;
+        this.id = id;
     }
 
     public void setfname(String fname) {

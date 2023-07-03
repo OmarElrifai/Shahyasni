@@ -10,11 +10,11 @@ import javax.persistence.*;
 public class LodgingBuildingReservation extends Reservations {
 
     @ManyToOne
-    @JoinColumn(name = "UserID")
+    @JoinColumn(name = "User")
     private User user;
 
     @ManyToOne
-    @JoinColumn(name = "LodgingBuildingID")
+    @JoinColumn(name = "LodgingBuilding")
     private LodgingBuilding lodgingBuilding;
 
     @Column(name = "NoOfRooms")

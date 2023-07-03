@@ -12,15 +12,15 @@ public class TripPhotos implements Serializable {
     private Integer id;
 
     @ManyToOne
-    @JoinColumn(name = "TripID")
-    private Trip tripID;
+    @JoinColumn(name = "Trip")
+    private Trip trip;
 
     @Column(name = "Photo")
     private byte[] Photo;
 
 
     public Integer getId() { return id; }
-    public Trip getTripID() { return tripID; }
+    public Trip getTripId() { return trip; }
     public byte[] getPhoto() { return Photo; }
 
 
@@ -29,7 +29,7 @@ public class TripPhotos implements Serializable {
     }
 
     public void setTripID(Trip tripID) {
-        this.tripID = tripID;
+        this.trip = tripID;
     }
 
     public void setPhoto(byte[] photo) {
