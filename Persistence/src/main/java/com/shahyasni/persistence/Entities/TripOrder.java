@@ -5,6 +5,7 @@ import com.shahyasni.persistence.Entities.PropertyTypes.PrivateProperty;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.List;
 
 @Entity
@@ -28,6 +29,9 @@ public class TripOrder implements Serializable {
     @ElementCollection
     @CollectionTable(name = "AvailableSeats", joinColumns = @JoinColumn(name = "TripOrder"))
     List<Integer> seats;
+
+    @Column(name = "OrderCreationDate")
+    private LocalDate orderCreationDate;
 
     @Column(name = "TotalDueAmount")
     private double totalDueAmount;
@@ -103,5 +107,13 @@ public class TripOrder implements Serializable {
 
     public void setTotalDueAmount(double totalDueAmount) {
         this.totalDueAmount = totalDueAmount;
+    }
+
+    public LocalDate getOrderCreationDate() {
+        return orderCreationDate;
+    }
+
+    public void setOrderCreationDate(LocalDate orderCreationDate) {
+        this.orderCreationDate = orderCreationDate;
     }
 }

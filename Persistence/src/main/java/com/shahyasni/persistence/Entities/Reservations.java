@@ -2,6 +2,7 @@ package com.shahyasni.persistence.Entities;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.time.LocalDate;
 
 @MappedSuperclass
 public class Reservations implements Serializable {
@@ -13,6 +14,11 @@ public class Reservations implements Serializable {
     @Column(name = "TotalDueAmount")
     private double totalDueAmount;
 
+    @Column(name = "FromDate")
+    private LocalDate fromDate;
+
+    @Column(name = "ToDate")
+    private LocalDate toDate;
 
     public Reservations(){
 
@@ -29,5 +35,21 @@ public class Reservations implements Serializable {
 
     public void setTotalDueAmount(double totalDueAmount) {
         this.totalDueAmount = totalDueAmount;
+    }
+
+    public LocalDate getFromDate() {
+        return fromDate;
+    }
+
+    public void setFromDate(LocalDate fromDate) {
+        this.fromDate = fromDate;
+    }
+
+    public LocalDate getToDate() {
+        return toDate;
+    }
+
+    public void setToDate(LocalDate toDate) {
+        this.toDate = toDate;
     }
 }

@@ -6,8 +6,8 @@ import java.time.LocalTime;
 public class LodgingBuildingOrderDetails extends OrderDetails{
 
     private String lodgingBuildingName;
-    public LodgingBuildingOrderDetails(Integer id, String username, String tripDetails, String city, String transportationCompany, LocalDate departureDate, LocalTime departureTime, LocalDate arrivalDate, LocalTime arrivalTime, double dueAmmount, String lodgingBuildingName) {
-        super(id,username, tripDetails, city, transportationCompany, departureDate, departureTime, arrivalDate, arrivalTime, dueAmmount);
+    public LodgingBuildingOrderDetails(Integer id, String tripDetails, String city, String transportationCompany, LocalDate departureDate, LocalTime departureTime, LocalDate arrivalDate, LocalTime arrivalTime, double dueAmmount, String lodgingBuildingName) {
+        super(id, tripDetails, city, transportationCompany, departureDate, departureTime, arrivalDate, arrivalTime, dueAmmount);
         this.lodgingBuildingName = lodgingBuildingName;
     }
 

@@ -16,8 +16,7 @@ public class OrderDetails {
     private double dueAmmount;
 
 
-    public OrderDetails(Integer id, String username, String tripDetails, String city, String transportationCompany, LocalDate departureDate, LocalTime departureTime, LocalDate arrivalDate, LocalTime arrivalTime, double dueAmmount){
-        this.userName = username;
+    public OrderDetails(Integer id, String tripDetails, String city, String transportationCompany, LocalDate departureDate, LocalTime departureTime, LocalDate arrivalDate, LocalTime arrivalTime, double dueAmmount){
         this.tripDetails = tripDetails;
         this.city = city;
         this.transportationCompany = transportationCompany;
