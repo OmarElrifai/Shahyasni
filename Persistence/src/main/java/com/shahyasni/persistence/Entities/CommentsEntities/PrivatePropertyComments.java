@@ -1,11 +1,10 @@
 package com.shahyasni.persistence.Entities.CommentsEntities;
 
 import com.shahyasni.persistence.Entities.Comments;
-import com.shahyasni.persistence.Entities.PropertyTypes.PrivateProperty;
+import com.shahyasni.persistence.Entities.AccomodationTypes.PrivateProperty;
 import com.shahyasni.persistence.Entities.User;
 
 import javax.persistence.*;
-import java.io.Serializable;
 
 @Entity
 public class PrivatePropertyComments extends Comments {

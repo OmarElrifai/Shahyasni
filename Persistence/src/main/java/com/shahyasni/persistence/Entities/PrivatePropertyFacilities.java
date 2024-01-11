@@ -1,6 +1,6 @@
 package com.shahyasni.persistence.Entities;
 
-import com.shahyasni.persistence.Entities.PropertyTypes.PrivateProperty;
+import com.shahyasni.persistence.Entities.AccomodationTypes.PrivateProperty;
 
 import javax.persistence.*;
 import java.io.Serializable;

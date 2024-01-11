@@ -1,9 +1,12 @@
 package com.shahyasni.persistence.Entities;
 
+import com.shahyasni.persistence.Entities.CommentsEntities.CompanyComments;
 import com.shahyasni.persistence.Entities.CommentsEntities.LodgingBuildingComments;
+import com.shahyasni.persistence.Entities.CommentsEntities.PrivatePropertyComments;
 import com.shahyasni.persistence.Entities.ReservationType.LodgingBuildingReservation;
 import com.shahyasni.persistence.Entities.ReservationType.PrivatePropertyReservation;
-
+//import javax.json.bind.annotation.JsonbTransient;
+import javax.json.bind.annotation.JsonbTransient;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -47,25 +50,41 @@ public class User implements Serializable {
     @Column(name = "DateOfAccountCreation")
     private LocalDate createdDate;
 
+
     @OneToMany(mappedBy = "user")
+    @JsonbTransient
     private List<LodgingBuildingReservation> lodgingBuildingReservations = new ArrayList<>();
 
     @OneToMany(mappedBy = "user")
+    @JsonbTransient
     private List<PrivatePropertyReservation> privatePropertyReservations = new ArrayList<>();
-
-    @ManyToMany
-    @JoinTable(name = "Trips", joinColumns = @JoinColumn(name = "Trip"), inverseJoinColumns = @JoinColumn(name = "User"))
-    private List<Trip> trips = new ArrayList<>() ;
+//
+    @OneToMany(mappedBy = "user")
+    @JsonbTransient
+    private List<TripOrder> tripsOrders = new ArrayList<>();
 
     @OneToMany(mappedBy = "user")
+    @JsonbTransient
     private List<UserBankAccount> userBankAccounts  = new ArrayList<>();
 
     @ManyToMany
+    @JsonbTransient
     @JoinTable(name = "UserTransportations",joinColumns = @JoinColumn(name = "User"),inverseJoinColumns = @JoinColumn(name = "Transportation"))
     private List<Transportation> transportation ;
 
     @OneToMany(mappedBy = "user")
-    private List<LodgingBuildingComments> comments = new ArrayList<>();
+    @JsonbTransient
+    private List<LodgingBuildingComments> lodgingBuildingComments = new ArrayList<>();
+
+
+    @OneToMany(mappedBy = "user")
+    @JsonbTransient
+    private List<PrivatePropertyComments> privatePropertyComments = new ArrayList<>();
+
+
+    @OneToMany(mappedBy = "user")
+    @JsonbTransient
+    private List<CompanyComments> companyComments = new ArrayList<>();
 
     public User(){
 
@@ -85,7 +104,7 @@ public class User implements Serializable {
     public Integer getAge(){ return this.age; }
     public String getAddress(){ return this.address; }
     public LocalDate getCreatedDate() { return this.createdDate; }
-    public List<Trip> getTrips() { return trips; }
+//    public List<TripOrder> getTripsOrders() { return tripsOrders; }
 
 
 
@@ -152,12 +171,12 @@ public class User implements Serializable {
         this.lodgingBuildingReservations = lodgingBuildingReservations;
     }
 
-    public List<LodgingBuildingComments> getComments() {
-        return comments;
+    public List<LodgingBuildingComments> getLodgingBuildingComments() {
+        return lodgingBuildingComments;
     }
 
-    public void setComments(List<LodgingBuildingComments> comments) {
-        this.comments = comments;
+    public void setLodgingBuildingComments(List<LodgingBuildingComments> comments) {
+        this.lodgingBuildingComments = comments;
     }
 
     public List<UserBankAccount> getUserBankAccounts() {
@@ -176,6 +195,33 @@ public class User implements Serializable {
         this.transportation = transportation;
     }
 
+    public List<PrivatePropertyComments> getPrivatePropertyComments() {
+        return privatePropertyComments;
+    }
+
+    public void setPrivatePropertyComments(List<PrivatePropertyComments> privatePropertyComments) {
+        this.privatePropertyComments = privatePropertyComments;
+    }
+
+    public List<CompanyComments> getCompanyComments() {
+        return companyComments;
+    }
+
+    public void setCompanyComments(List<CompanyComments> companyComments) {
+        this.companyComments = companyComments;
+    }
+
+    public List<TripOrder> getTripsOrders() {
+        return tripsOrders;
+    }
+
+    public void setTripsOrders(List<TripOrder> tripsOrders) {
+        this.tripsOrders = tripsOrders;
+    }
+
+//    public void setTripsOrders(List<TripOrder> tripsOrders){
+//        this.tripsOrders = tripsOrders;
+//    }
 
 //    @Override
 //    public boolean equals(Object o) {

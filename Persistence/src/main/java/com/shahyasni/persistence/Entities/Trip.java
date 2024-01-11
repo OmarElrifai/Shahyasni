@@ -1,12 +1,10 @@
 package com.shahyasni.persistence.Entities;
 
-import com.shahyasni.persistence.Entities.PropertyTypes.LodgingBuilding;
-import com.shahyasni.persistence.Entities.PropertyTypes.PrivateProperty;
+import com.shahyasni.persistence.Entities.AccomodationTypes.LodgingBuilding;
+import com.shahyasni.persistence.Entities.AccomodationTypes.PrivateProperty;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.time.LocalDate;
-import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,8 +15,12 @@ public class Trip implements Serializable {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Integer id;
 
-    @ManyToMany(mappedBy = "trips")
-    private List<User> users = new ArrayList<>();
+//    @ManyToMany(mappedBy = "tripsOrders")
+//    private List<User> users = new ArrayList<>();
+
+
+    @Column(name = "TripTitle")
+    private String tripTitle;
 
     @Column(name = "TripDetails")
     private String tripDetails;
@@ -30,7 +32,11 @@ public class Trip implements Serializable {
 
     @ManyToMany
     @JoinTable(name = "TripsLocations", joinColumns = @JoinColumn(name = "Trip"),inverseJoinColumns = @JoinColumn(name = "Location"))
-    private List<Location> location;
+    private List<Location> locations;
+
+    @ManyToMany
+    @JoinTable(name = "TripActivities", joinColumns = @JoinColumn(name = "Trip"),inverseJoinColumns = @JoinColumn(name = "Activities"))
+    private List<Activity> activities;
 
     @Column(name = "PickUpLocation")
     private String pickUpLocation;
@@ -39,7 +45,7 @@ public class Trip implements Serializable {
     private List<TripPhotos> photos = new ArrayList<>();
 
     @ManyToOne
-    @JoinColumn(name = "Company")
+    @JoinColumn(name = "CompanyResources")
     private Company company;
 
     @Column(name = "Price")
@@ -52,8 +58,9 @@ public class Trip implements Serializable {
     @ManyToMany
     @JoinTable(name = "TripsPrivateProperty",joinColumns = @JoinColumn(name = "Trips"),inverseJoinColumns = @JoinColumn(name = "PrivateBuildings"))
     private List<PrivateProperty> privateProperties;
-
-
+//
+    @OneToMany(mappedBy = "trip")
+    private List<TripOrder> tripOrder;
 
 
     public Trip() {
@@ -61,15 +68,15 @@ public class Trip implements Serializable {
     }
 
     public Integer getId() { return id; }
-    public List<User> getUsers() { return users; }
+//    public List<User> getUsers() { return users; }
 
     public void setId(Integer id) {
         this.id = id;
     }
 
-    public void setUsers(List<User> users) {
-        this.users = users;
-    }
+//    public void setUsers(List<User> users) {
+//        this.users = users;
+//    }
 
     public Company getCompany() {
         return company;
@@ -80,11 +87,11 @@ public class Trip implements Serializable {
     }
 
     public List<Location> getLocation() {
-        return location;
+        return locations;
     }
 
     public void setLocation(List<Location> location) {
-        this.location = location;
+        this.locations = location;
     }
 
     public String getPickUpLocation() {
@@ -142,4 +149,36 @@ public class Trip implements Serializable {
     public void setTransportation(List<com.shahyasni.persistence.Entities.Transportation> transportation) {
         Transportation = transportation;
     }
+
+    public List<TripOrder> getTripOrder() {
+        return tripOrder;
+    }
+
+    public void setTripOrder(List<TripOrder> tripOrder) {
+        this.tripOrder = tripOrder;
+    }
+
+    public List<Activity> getActivities() {
+        return activities;
+    }
+
+    public void setActivities(List<Activity> activities) {
+        this.activities = activities;
+    }
+
+    public String getTripTitle() {
+        return tripTitle;
+    }
+
+    public void setTripTitle(String tripTitle) {
+        this.tripTitle = tripTitle;
+    }
+
+//    public List<TripOrder> getTripOrder() {
+//        return tripOrder;
+//    }
+//
+//    public void setTripOrder(List<TripOrder> tripOrder) {
+//        this.tripOrder = tripOrder;
+//    }
 }

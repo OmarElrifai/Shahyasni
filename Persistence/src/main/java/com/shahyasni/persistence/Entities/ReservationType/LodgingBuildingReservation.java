@@ -1,6 +1,6 @@
 package com.shahyasni.persistence.Entities.ReservationType;
 
-import com.shahyasni.persistence.Entities.PropertyTypes.LodgingBuilding;
+import com.shahyasni.persistence.Entities.AccomodationTypes.LodgingBuilding;
 import com.shahyasni.persistence.Entities.Reservations;
 import com.shahyasni.persistence.Entities.User;
 

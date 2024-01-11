@@ -1,7 +1,7 @@
 package com.shahyasni.persistence.Entities;
 
-import com.shahyasni.persistence.Entities.PropertyTypes.LodgingBuilding;
-import com.shahyasni.persistence.Entities.PropertyTypes.PrivateProperty;
+import com.shahyasni.persistence.Entities.ReservationType.LodgingBuildingReservation;
+import com.shahyasni.persistence.Entities.ReservationType.PrivatePropertyReservation;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -10,25 +10,26 @@ import java.util.List;
 
 @Entity
 public class TripOrder implements Serializable {
+
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Integer id;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "User")
     private User user;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "Trip")
     private Trip trip;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "Transportation")
     private Transportation transportation;
 
     @ElementCollection
     @CollectionTable(name = "AvailableSeats", joinColumns = @JoinColumn(name = "TripOrder"))
-    List<Integer> seats;
+    private List<Integer> seats;
 
     @Column(name = "OrderCreationDate")
     private LocalDate orderCreationDate;
@@ -37,21 +38,13 @@ public class TripOrder implements Serializable {
     private double totalDueAmount;
 
     @OneToOne
-    @JoinColumn(name = "LodgingBuilding")
-    private LodgingBuilding lodgingBuilding;
+    @JoinColumn(name = "LodgingBuildingReservation")
+    private LodgingBuildingReservation lodgingBuildingReservation;
 
     @OneToOne
-    @JoinColumn(name = "PrivateProperty")
-    private PrivateProperty privateProperty;
+    @JoinColumn(name = "PrivatePropertyReservation")
+    private PrivatePropertyReservation privatePropertyReservation;
 
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
 
     public User getUser() {
         return user;
@@ -69,20 +62,20 @@ public class TripOrder implements Serializable {
         this.trip = trip;
     }
 
-    public LodgingBuilding getLodgingBuilding() {
-        return lodgingBuilding;
+    public LodgingBuildingReservation getLodgingBuildingReservation() {
+        return lodgingBuildingReservation;
     }
 
-    public void setLodgingBuilding(LodgingBuilding lodgingBuilding) {
-        this.lodgingBuilding = lodgingBuilding;
+    public void setLodgingBuildingReservation(LodgingBuildingReservation lodgingBuildingReservation) {
+        this.lodgingBuildingReservation = lodgingBuildingReservation;
     }
 
-    public PrivateProperty getPrivateProperty() {
-        return privateProperty;
+    public PrivatePropertyReservation getPrivatePropertyReservation() {
+        return privatePropertyReservation;
     }
 
-    public void setPrivateProperty(PrivateProperty privateProperty) {
-        this.privateProperty = privateProperty;
+    public void setPrivatePropertyReservation(PrivatePropertyReservation privatePropertyReservation) {
+        this.privatePropertyReservation = privatePropertyReservation;
     }
 
     public Transportation getTransportation() {
@@ -115,5 +108,13 @@ public class TripOrder implements Serializable {
 
     public void setOrderCreationDate(LocalDate orderCreationDate) {
         this.orderCreationDate = orderCreationDate;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 }

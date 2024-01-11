@@ -1,6 +1,6 @@
 package com.shahyasni.persistence.Entities.SupportingDocsEntities;
 
-import com.shahyasni.persistence.Entities.PropertyTypes.LodgingBuilding;
+import com.shahyasni.persistence.Entities.AccomodationTypes.LodgingBuilding;
 import com.shahyasni.persistence.Entities.SupportingDocs;
 
 import javax.persistence.Entity;

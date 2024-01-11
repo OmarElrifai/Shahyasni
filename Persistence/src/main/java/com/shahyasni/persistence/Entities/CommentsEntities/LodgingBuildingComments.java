@@ -1,11 +1,10 @@
 package com.shahyasni.persistence.Entities.CommentsEntities;
 
 import com.shahyasni.persistence.Entities.Comments;
-import com.shahyasni.persistence.Entities.PropertyTypes.LodgingBuilding;
+import com.shahyasni.persistence.Entities.AccomodationTypes.LodgingBuilding;
 import com.shahyasni.persistence.Entities.User;
 
 import javax.persistence.*;
-import java.io.Serializable;
 
 @Entity
 public class LodgingBuildingComments extends Comments {

@@ -1,7 +1,7 @@
 package com.shahyasni.persistence.Entities.PropertyPhotosEntities;
 
 
-import com.shahyasni.persistence.Entities.PropertyTypes.LodgingBuilding;
+import com.shahyasni.persistence.Entities.AccomodationTypes.LodgingBuilding;
 import com.shahyasni.persistence.Entities.PropertyPhotos;
 
 import javax.persistence.Entity;

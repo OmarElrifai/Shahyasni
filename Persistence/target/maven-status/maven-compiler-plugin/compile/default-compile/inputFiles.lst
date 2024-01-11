@@ -1,47 +1,64 @@
-/Users/omaribrahimelrifai/Documents/ShahYasni/Persistence/src/main/java/com/shahyasni/ShahYasniResources/RootPath.java
-/Users/omaribrahimelrifai/Documents/ShahYasni/Persistence/src/main/java/com/shahyasni/persistence/Enums/LodgingBuildingType.java
-/Users/omaribrahimelrifai/Documents/ShahYasni/Persistence/src/main/java/com/shahyasni/persistence/DAOs/UserModel.java
-/Users/omaribrahimelrifai/Documents/ShahYasni/Persistence/src/main/java/com/shahyasni/persistence/Entities/CompanyBankAccount.java
-/Users/omaribrahimelrifai/Documents/ShahYasni/Persistence/src/main/java/com/shahyasni/persistence/test.java
-/Users/omaribrahimelrifai/Documents/ShahYasni/Persistence/src/main/java/com/shahyasni/persistence/Entities/PrivatePropertyFacilities.java
-/Users/omaribrahimelrifai/Documents/ShahYasni/Persistence/src/main/java/com/shahyasni/persistence/Enums/RoomFacilitiesChoiceList.java
-/Users/omaribrahimelrifai/Documents/ShahYasni/Persistence/src/main/java/com/shahyasni/ShahYasniResources/UserResources.java
-/Users/omaribrahimelrifai/Documents/ShahYasni/Persistence/src/main/java/com/shahyasni/persistence/Entities/SupportingDocs.java
-/Users/omaribrahimelrifai/Documents/ShahYasni/Persistence/src/main/java/com/shahyasni/persistence/Enums/SupportingDocType.java
-/Users/omaribrahimelrifai/Documents/ShahYasni/Persistence/src/main/java/com/shahyasni/persistence/Entities/LodgingBuildingAdditionalFacilities.java
-/Users/omaribrahimelrifai/Documents/ShahYasni/Persistence/src/main/java/com/shahyasni/persistence/DTOs/OrderDetails.java
-/Users/omaribrahimelrifai/Documents/ShahYasni/Persistence/src/main/java/com/shahyasni/persistence/Entities/SupportingDocsEntities/CompanySupportingDocs.java
-/Users/omaribrahimelrifai/Documents/ShahYasni/Persistence/src/main/java/com/shahyasni/persistence/Entities/TripPhotos.java
-/Users/omaribrahimelrifai/Documents/ShahYasni/Persistence/src/main/java/com/shahyasni/persistence/Entities/Company.java
-/Users/omaribrahimelrifai/Documents/ShahYasni/Persistence/src/main/java/com/shahyasni/persistence/Enums/FacilityType.java
-/Users/omaribrahimelrifai/Documents/ShahYasni/Persistence/src/main/java/com/shahyasni/persistence/Entities/BankAccount.java
-/Users/omaribrahimelrifai/Documents/ShahYasni/Persistence/src/main/java/com/shahyasni/persistence/Entities/Trip.java
-/Users/omaribrahimelrifai/Documents/ShahYasni/Persistence/src/main/java/com/shahyasni/persistence/DTOs/PrivatePropertyOrderDetails.java
-/Users/omaribrahimelrifai/Documents/ShahYasni/Persistence/src/main/java/com/shahyasni/persistence/DTOs/LocationDTO.java
-/Users/omaribrahimelrifai/Documents/ShahYasni/Persistence/src/main/java/com/shahyasni/persistence/Entities/CommentsEntities/LodgingBuildingComments.java
-/Users/omaribrahimelrifai/Documents/ShahYasni/Persistence/src/main/java/com/shahyasni/persistence/Entities/Transportation.java
-/Users/omaribrahimelrifai/Documents/ShahYasni/Persistence/src/main/java/com/shahyasni/persistence/Entities/PropertyPhotosEntities/PrivatePropertyPhotos.java
-/Users/omaribrahimelrifai/Documents/ShahYasni/Persistence/src/main/java/com/shahyasni/persistence/Entities/Comments.java
-/Users/omaribrahimelrifai/Documents/ShahYasni/Persistence/src/main/java/com/shahyasni/persistence/Entities/LodgingBuildingFacilities.java
-/Users/omaribrahimelrifai/Documents/ShahYasni/Persistence/src/main/java/com/shahyasni/persistence/Entities/PropertyOwner.java
-/Users/omaribrahimelrifai/Documents/ShahYasni/Persistence/src/main/java/com/shahyasni/persistence/Entities/TripOrder.java
-/Users/omaribrahimelrifai/Documents/ShahYasni/Persistence/src/main/java/com/shahyasni/persistence/Enums/FacilitiesChoiceList.java
-/Users/omaribrahimelrifai/Documents/ShahYasni/Persistence/src/main/java/com/shahyasni/persistence/Entities/PropertyTypes/LodgingBuilding.java
-/Users/omaribrahimelrifai/Documents/ShahYasni/Persistence/src/main/java/com/shahyasni/persistence/Entities/User.java
-/Users/omaribrahimelrifai/Documents/ShahYasni/Persistence/src/main/java/com/shahyasni/persistence/Entities/Reservations.java
-/Users/omaribrahimelrifai/Documents/ShahYasni/Persistence/src/main/java/com/shahyasni/persistence/Entities/CommentsEntities/CompanyComments.java
-/Users/omaribrahimelrifai/Documents/ShahYasni/Persistence/src/main/java/com/shahyasni/persistence/Entities/UserBankAccount.java
-/Users/omaribrahimelrifai/Documents/ShahYasni/Persistence/src/main/java/com/shahyasni/persistence/Entities/Location.java
-/Users/omaribrahimelrifai/Documents/ShahYasni/Persistence/src/main/java/com/shahyasni/persistence/Entities/ReservationType/PrivatePropertyReservation.java
-/Users/omaribrahimelrifai/Documents/ShahYasni/Persistence/src/main/java/com/shahyasni/persistence/Entities/Address.java
-/Users/omaribrahimelrifai/Documents/ShahYasni/Persistence/src/main/java/com/shahyasni/persistence/Entities/RoomFacilities.java
-/Users/omaribrahimelrifai/Documents/ShahYasni/Persistence/src/main/java/com/shahyasni/persistence/Entities/ReservationType/LodgingBuildingReservation.java
-/Users/omaribrahimelrifai/Documents/ShahYasni/Persistence/src/main/java/com/shahyasni/persistence/DTOs/OrdersSummary.java
-/Users/omaribrahimelrifai/Documents/ShahYasni/Persistence/src/main/java/com/shahyasni/persistence/Entities/PropertyPhotosEntities/LodgingBuildingPhotos.java
-/Users/omaribrahimelrifai/Documents/ShahYasni/Persistence/src/main/java/com/shahyasni/persistence/DTOs/LodgingBuildingOrderDetails.java
-/Users/omaribrahimelrifai/Documents/ShahYasni/Persistence/src/main/java/com/shahyasni/persistence/Entities/PropertyPhotos.java
-/Users/omaribrahimelrifai/Documents/ShahYasni/Persistence/src/main/java/com/shahyasni/persistence/Entities/SupportingDocsEntities/LodgingBuildingDocs.java
-/Users/omaribrahimelrifai/Documents/ShahYasni/Persistence/src/main/java/com/shahyasni/persistence/Entities/Property.java
-/Users/omaribrahimelrifai/Documents/ShahYasni/Persistence/src/main/java/com/shahyasni/persistence/Entities/CommentsEntities/PrivatePropertyComments.java
-/Users/omaribrahimelrifai/Documents/ShahYasni/Persistence/src/main/java/com/shahyasni/persistence/Entities/PropertyTypes/PrivateProperty.java
-/Users/omaribrahimelrifai/Documents/ShahYasni/Persistence/src/main/java/com/shahyasni/persistence/Entities/SupportingDocsEntities/PrivatePropertySupportingDocs.java
+C:\Users\Omar Elrifai\Documents\ShahYasni\Persistence\src\main\java\com\shahyasni\persistence\Entities\Trip.java
+C:\Users\Omar Elrifai\Documents\ShahYasni\Persistence\src\main\java\com\shahyasni\persistence\Entities\SupportingDocsEntities\LodgingBuildingDocs.java
+C:\Users\Omar Elrifai\Documents\ShahYasni\Persistence\src\main\java\com\shahyasni\persistence\DTOs\LocationDTO.java
+C:\Users\Omar Elrifai\Documents\ShahYasni\Persistence\src\main\java\com\shahyasni\persistence\Entities\ReservationType\PrivatePropertyReservation.java
+C:\Users\Omar Elrifai\Documents\ShahYasni\Persistence\src\main\java\com\shahyasni\persistence\Entities\LodgingBuildingAdditionalFacilities.java
+C:\Users\Omar Elrifai\Documents\ShahYasni\Persistence\src\main\java\com\shahyasni\persistence\Entities\AccomodationTypes\LodgingBuilding.java
+C:\Users\Omar Elrifai\Documents\ShahYasni\Persistence\src\main\java\com\shahyasni\persistence\Entities\Comments.java
+C:\Users\Omar Elrifai\Documents\ShahYasni\Persistence\src\main\java\com\shahyasni\ShahYasniResources\UserResources.java
+C:\Users\Omar Elrifai\Documents\ShahYasni\Persistence\src\main\java\com\shahyasni\persistence\Entities\Governerate.java
+C:\Users\Omar Elrifai\Documents\ShahYasni\Persistence\src\main\java\com\shahyasni\persistence\Entities\Property.java
+C:\Users\Omar Elrifai\Documents\ShahYasni\Persistence\src\main\java\com\shahyasni\persistence\Entities\RoomFacilities.java
+C:\Users\Omar Elrifai\Documents\ShahYasni\Persistence\src\main\java\com\shahyasni\persistence\DTOs\TripOrderForPrivateProperty.java
+C:\Users\Omar Elrifai\Documents\ShahYasni\Persistence\src\main\java\com\shahyasni\persistence\Entities\BankAccount.java
+C:\Users\Omar Elrifai\Documents\ShahYasni\Persistence\src\main\java\com\shahyasni\persistence\Entities\Activity.java
+C:\Users\Omar Elrifai\Documents\ShahYasni\Persistence\src\main\java\com\shahyasni\persistence\Entities\LodgingBuildingFacilities.java
+C:\Users\Omar Elrifai\Documents\ShahYasni\Persistence\src\main\java\com\shahyasni\persistence\Entities\Location.java
+C:\Users\Omar Elrifai\Documents\ShahYasni\Persistence\src\main\java\com\shahyasni\persistence\Entities\CommentsEntities\LodgingBuildingComments.java
+C:\Users\Omar Elrifai\Documents\ShahYasni\Persistence\src\main\java\com\shahyasni\persistence\Entities\Owner.java
+C:\Users\Omar Elrifai\Documents\ShahYasni\Persistence\src\main\java\com\shahyasni\persistence\Entities\User.java
+C:\Users\Omar Elrifai\Documents\ShahYasni\Persistence\src\main\java\com\shahyasni\persistence\Enums\RoomFacilitiesChoiceList.java
+C:\Users\Omar Elrifai\Documents\ShahYasni\Persistence\src\main\java\com\shahyasni\persistence\Entities\UserBankAccount.java
+C:\Users\Omar Elrifai\Documents\ShahYasni\Persistence\src\main\java\com\shahyasni\persistence\Enums\SupportingDocType.java
+C:\Users\Omar Elrifai\Documents\ShahYasni\Persistence\src\main\java\com\shahyasni\persistence\DTOs\UserDTO.java
+C:\Users\Omar Elrifai\Documents\ShahYasni\Persistence\src\main\java\com\shahyasni\persistence\Entities\PrivatePropertyFacilities.java
+C:\Users\Omar Elrifai\Documents\ShahYasni\Persistence\src\main\java\com\shahyasni\persistence\Entities\TripOrder.java
+C:\Users\Omar Elrifai\Documents\ShahYasni\Persistence\src\main\java\com\shahyasni\persistence\DTOs\ReservationDTO.java
+C:\Users\Omar Elrifai\Documents\ShahYasni\Persistence\src\main\java\com\shahyasni\persistence\DTOs\UserTrips.java
+C:\Users\Omar Elrifai\Documents\ShahYasni\Persistence\src\main\java\com\shahyasni\persistence\Entities\PropertyPhotos.java
+C:\Users\Omar Elrifai\Documents\ShahYasni\Persistence\src\main\java\com\shahyasni\ShahYasniResources\LocationResources.java
+C:\Users\Omar Elrifai\Documents\ShahYasni\Persistence\src\main\java\com\shahyasni\persistence\test.java
+C:\Users\Omar Elrifai\Documents\ShahYasni\Persistence\src\main\java\com\shahyasni\persistence\DTOs\TripOrderDTO.java
+C:\Users\Omar Elrifai\Documents\ShahYasni\Persistence\src\main\java\com\shahyasni\persistence\Entities\CommentsEntities\CompanyComments.java
+C:\Users\Omar Elrifai\Documents\ShahYasni\Persistence\src\main\java\com\shahyasni\persistence\Entities\CommentsEntities\PrivatePropertyComments.java
+C:\Users\Omar Elrifai\Documents\ShahYasni\Persistence\src\main\java\com\shahyasni\persistence\Entities\ReservationType\LodgingBuildingReservation.java
+C:\Users\Omar Elrifai\Documents\ShahYasni\Persistence\src\main\java\com\shahyasni\persistence\Entities\CompanyBankAccount.java
+C:\Users\Omar Elrifai\Documents\ShahYasni\Persistence\src\main\java\com\shahyasni\ShahYasniResources\OwnerResources.java
+C:\Users\Omar Elrifai\Documents\ShahYasni\Persistence\src\main\java\com\shahyasni\persistence\DTOs\LodgingBuildingDTO.java
+C:\Users\Omar Elrifai\Documents\ShahYasni\Persistence\src\main\java\com\shahyasni\ShahYasniResources\CompanyResources.java
+C:\Users\Omar Elrifai\Documents\ShahYasni\Persistence\src\main\java\com\shahyasni\persistence\DAOs\PrivatePropertyDao.java
+C:\Users\Omar Elrifai\Documents\ShahYasni\Persistence\src\main\java\com\shahyasni\persistence\DAOs\TripDao.java
+C:\Users\Omar Elrifai\Documents\ShahYasni\Persistence\src\main\java\com\shahyasni\persistence\Enums\FacilityType.java
+C:\Users\Omar Elrifai\Documents\ShahYasni\Persistence\src\main\java\com\shahyasni\persistence\Entities\Address.java
+C:\Users\Omar Elrifai\Documents\ShahYasni\Persistence\src\main\java\com\shahyasni\persistence\DTOs\SearchRequest.java
+C:\Users\Omar Elrifai\Documents\ShahYasni\Persistence\src\main\java\com\shahyasni\persistence\Entities\Reservations.java
+C:\Users\Omar Elrifai\Documents\ShahYasni\Persistence\src\main\java\com\shahyasni\persistence\Entities\Company.java
+C:\Users\Omar Elrifai\Documents\ShahYasni\Persistence\src\main\java\com\shahyasni\persistence\DTOs\UserBankAccountDTO.java
+C:\Users\Omar Elrifai\Documents\ShahYasni\Persistence\src\main\java\com\shahyasni\persistence\Enums\FacilitiesChoiceList.java
+C:\Users\Omar Elrifai\Documents\ShahYasni\Persistence\src\main\java\com\shahyasni\persistence\Entities\AccomodationTypes\PrivateProperty.java
+C:\Users\Omar Elrifai\Documents\ShahYasni\Persistence\src\main\java\com\shahyasni\persistence\DTOs\TripDTO.java
+C:\Users\Omar Elrifai\Documents\ShahYasni\Persistence\src\main\java\com\shahyasni\persistence\Entities\PropertyPhotosEntities\PrivatePropertyPhotos.java
+C:\Users\Omar Elrifai\Documents\ShahYasni\Persistence\src\main\java\com\shahyasni\persistence\DTOs\PrivatePropertyDTO.java
+C:\Users\Omar Elrifai\Documents\ShahYasni\Persistence\src\main\java\com\shahyasni\persistence\Entities\SupportingDocsEntities\CompanySupportingDocs.java
+C:\Users\Omar Elrifai\Documents\ShahYasni\Persistence\src\main\java\com\shahyasni\persistence\DTOs\TripOrderDetails.java
+C:\Users\Omar Elrifai\Documents\ShahYasni\Persistence\src\main\java\com\shahyasni\persistence\Entities\SupportingDocs.java
+C:\Users\Omar Elrifai\Documents\ShahYasni\Persistence\src\main\java\com\shahyasni\persistence\DAOs\UserDao.java
+C:\Users\Omar Elrifai\Documents\ShahYasni\Persistence\src\main\java\com\shahyasni\persistence\Entities\TripPhotos.java
+C:\Users\Omar Elrifai\Documents\ShahYasni\Persistence\src\main\java\com\shahyasni\persistence\Entities\PropertyPhotosEntities\LodgingBuildingPhotos.java
+C:\Users\Omar Elrifai\Documents\ShahYasni\Persistence\src\main\java\com\shahyasni\persistence\Entities\City.java
+C:\Users\Omar Elrifai\Documents\ShahYasni\Persistence\src\main\java\com\shahyasni\persistence\DAOs\LodgingBuildingDao.java
+C:\Users\Omar Elrifai\Documents\ShahYasni\Persistence\src\main\java\com\shahyasni\persistence\Entities\SupportingDocsEntities\PrivatePropertySupportingDocs.java
+C:\Users\Omar Elrifai\Documents\ShahYasni\Persistence\src\main\java\com\shahyasni\persistence\Entities\Transportation.java
+C:\Users\Omar Elrifai\Documents\ShahYasni\Persistence\src\main\java\com\shahyasni\persistence\DAOs\LocationDao.java
+C:\Users\Omar Elrifai\Documents\ShahYasni\Persistence\src\main\java\com\shahyasni\persistence\Enums\LodgingBuildingType.java
+C:\Users\Omar Elrifai\Documents\ShahYasni\Persistence\src\main\java\com\shahyasni\ShahYasniResources\RootPath.java

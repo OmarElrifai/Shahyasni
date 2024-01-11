@@ -1,6 +1,6 @@
 package com.shahyasni.persistence.Entities.PropertyPhotosEntities;
 
-import com.shahyasni.persistence.Entities.PropertyTypes.PrivateProperty;
+import com.shahyasni.persistence.Entities.AccomodationTypes.PrivateProperty;
 import com.shahyasni.persistence.Entities.PropertyPhotos;
 
 import javax.persistence.Entity;

@@ -2,8 +2,6 @@ package com.shahyasni.persistence.Entities;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 
 @Embeddable
 public class Address {
@@ -14,20 +12,20 @@ public class Address {
     @Column(name = "Block")
     private String block;
 
-    @Column(name = "Landscape")
-    private String landscape;
+    @Column(name = "Sight")
+    private String sight;
 
 
     public String getStreet() { return street; }
-    public String getLandscape() { return landscape; };
+    public String getSight() { return sight; };
 
 
     public void setStreet(String street) {
         this.street = street;
     }
 
-    public void setLandscape(String landscape) {
-        this.landscape = landscape;
+    public void setSight(String landscape) {
+        this.sight = landscape;
     }
 
     public String getBlock() {

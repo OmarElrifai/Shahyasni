@@ -1,7 +1,5 @@
 package com.shahyasni.persistence.Entities;
 
-import com.shahyasni.persistence.Entities.PropertyTypes.LodgingBuilding;
-
 import javax.persistence.*;
 import java.io.Serializable;
 

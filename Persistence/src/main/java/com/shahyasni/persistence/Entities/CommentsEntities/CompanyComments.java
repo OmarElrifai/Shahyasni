@@ -5,27 +5,26 @@ import com.shahyasni.persistence.Entities.Comments;
 import com.shahyasni.persistence.Entities.Company;
 import com.shahyasni.persistence.Entities.User;
 
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
 @Entity
 public class CompanyComments extends Comments {
 
     @ManyToOne
+    @Basic(fetch = FetchType.LAZY)
     @JoinColumn(name = "User")
-    private User userID;
+    private User user;
 
     @ManyToOne
-    @JoinColumn(name = "Company")
+    @JoinColumn(name = "CompanyResources")
     private Company company;
-
-     public User getUserID() {
-        return userID;
+//
+     public User getUser() {
+        return user;
     }
 
-    public void setUserID(User userID) {
-        this.userID = userID;
+    public void setUser(User userID) {
+        this.user = userID;
     }
 
     public Company getCompany() {

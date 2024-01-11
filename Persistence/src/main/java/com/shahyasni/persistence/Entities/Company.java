@@ -3,6 +3,7 @@ package com.shahyasni.persistence.Entities;
 import com.shahyasni.persistence.Entities.CommentsEntities.CompanyComments;
 import com.shahyasni.persistence.Entities.SupportingDocsEntities.CompanySupportingDocs;
 
+import javax.json.bind.annotation.JsonbTransient;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -19,12 +20,15 @@ public class Company  implements Serializable {
     private String name;
 
     @OneToMany(mappedBy = "company")
+    @JsonbTransient
     private List<CompanyBankAccount> companyBankAccounts = new ArrayList<>();;
 
     @OneToMany(mappedBy = "company")
+    @JsonbTransient
     private List<CompanySupportingDocs> supportingDocs = new ArrayList<>();;
 
     @OneToMany(mappedBy = "company")
+    @JsonbTransient
     private List<Trip> trips = new ArrayList<>();;
 
     @Column(name = "StaffEvaluation")
@@ -35,12 +39,13 @@ public class Company  implements Serializable {
 
 
     @OneToMany(mappedBy = "company")
+    @JsonbTransient
     private List<CompanyComments> comments = new ArrayList<>();;
 
 
-    @ManyToOne
-    @JoinColumn(name = "Location")
-    private Location location;
+
+    @Embedded
+    private Address address;
 
     public Integer getId() { return id; }
     public String getName() { return name; }
@@ -108,11 +113,13 @@ public class Company  implements Serializable {
         this.comments = comments;
     }
 
-    public Location getLocation() {
-        return location;
+
+
+    public Address getAddress() {
+        return address;
     }
 
-    public void setLocation(Location location) {
-        this.location = location;
+    public void setAddress(Address address) {
+        this.address = address;
     }
 }

@@ -22,9 +22,7 @@ public class Transportation implements Serializable {
     @Column(name = "TransportationCompanyName")
     private String companyName;
 
-    @ManyToOne
-    @JoinColumn(name = "Location")
-    private Location location;
+
 
     @Column(name = "DepartureDate")
     private LocalDate departureDate;
@@ -41,9 +39,7 @@ public class Transportation implements Serializable {
     @Column(name = "PricePerSeat")
     private double price;
 
-    @ElementCollection
-    @CollectionTable(name = "AvailableSeats", joinColumns = @JoinColumn(name = "Transportation"))
-    List<Integer> seats;
+
 
 
     public Integer getId() { return id; }
@@ -81,13 +77,7 @@ public class Transportation implements Serializable {
         this.arrivalTime = arrivalTime;
     }
 
-    public Location getLocation() {
-        return location;
-    }
 
-    public void setLocation(Location location) {
-        this.location = location;
-    }
 
     public double getPrice() {
         return price;

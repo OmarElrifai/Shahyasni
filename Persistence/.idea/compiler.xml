@@ -9,8 +9,5 @@
         <module name="Persistence" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="Persistence" target="1.8" />
-    </bytecodeTargetLevel>
   </component>
 </project>
