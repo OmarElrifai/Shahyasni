@@ -101,7 +101,7 @@ public class UserDao implements Serializable{
     }
 
     public List<Object[]> getTripOrdersForUser(Integer userId){
-        return em.createQuery("select new com.shahyasni.persistence.DTOs.UserTrips(location , seats , o.totalDueAmount, trans.departureDate, u.fname, u.lname, u.username) from TripOrder o join o.trip t join o.transportation trans join o.user u  join o.seats seats join t.locations location where u.id = :userId", Object[].class).setParameter("userId",userId).getResultList();
+        return em.createQuery("select new com.shahyasni.persistence.DTOs.UserTrips(o.id,location , seats , o.totalDueAmount, trans.departureDate, u.fname, u.lname, u.username) from TripOrder o join o.trip t join o.transportation trans join o.user u  join o.seats seats join t.locations location where u.id = :userId", Object[].class).setParameter("userId",userId).getResultList();
     }
 
 
@@ -110,19 +110,19 @@ public class UserDao implements Serializable{
 
 
     public List<Object[]> getTripOrderForLodgingBuilding(Integer orderId){
-        return em.createQuery("select new com.shahyasni.persistence.DTOs.TripOrderDetails(o.id, u.username, t.tripDetails,location, seats, trans.companyName,trans.departureDate,trans.departureTime,trans.arrivalDate,trans.arrivalTime,o.totalDueAmount,l.name) from TripOrder o join o.user u join o.trip t join t.locations location join o.seats seats join o.transportation trans  join o.lodgingBuildingReservation.lodgingBuilding l where o.id = :orderId", Object[].class).setParameter("orderId",orderId).getResultList();
+        return em.createQuery("select new com.shahyasni.persistence.DTOs.TripOrderDetails(o.id, u.username, t.tripDetails,location, seats, trans.companyName,t.pickUpLocation,trans.departureDate,trans.departureTime,trans.arrivalDate,trans.arrivalTime,o.totalDueAmount,l.name) from TripOrder o join o.user u join o.trip t join t.locations location join o.seats seats join o.transportation trans  join o.lodgingBuildingReservation.lodgingBuilding l where o.id = :orderId", Object[].class).setParameter("orderId",orderId).getResultList();
     }
 
     public List<Object[]> getTripOrderForPrivateProperty(Integer orderId){
-        return em.createQuery("select new com.shahyasni.persistence.DTOs.TripOrderForPrivateProperty(o.id, u.username, t.tripDetails, location, seats, trans.companyName,trans.departureDate,trans.departureTime,trans.arrivalDate,trans.arrivalTime,o.totalDueAmount,p.buildingType) from TripOrder o join o.user u join o.trip t  join t.locations location join o.seats seats join o.transportation trans join o.privatePropertyReservation.privateProperty p where o.id = :orderId", Object[].class).setParameter("orderId",orderId).getResultList();
+        return em.createQuery("select new com.shahyasni.persistence.DTOs.TripOrderDetails(o.id, u.username, t.tripDetails, location, seats, trans.companyName,t.pickUpLocation,trans.departureDate,trans.departureTime,trans.arrivalDate,trans.arrivalTime,o.totalDueAmount,p.name) from TripOrder o join o.user u join o.trip t  join t.locations location join o.seats seats join o.transportation trans join o.privatePropertyReservation.privateProperty p where o.id = :orderId", Object[].class).setParameter("orderId",orderId).getResultList();
     }
 
     public List<Object[]> getTripOrdersInTimeWindow(LocalDate from, LocalDate to){
-        return em.createQuery("select new com.shahyasni.persistence.DTOs.UserTrips(location ,seats, o.totalDueAmount, trans.departureDate, u.fname, u.lname, u.username) from TripOrder o join o.trip t join o.transportation trans join o.user u join o.seats seats join t.locations location where trans.departureDate between   :from and :to", Object[].class).setParameter("from",from).setParameter("to",to).getResultList();
+        return em.createQuery("select new com.shahyasni.persistence.DTOs.UserTrips(o.id,location ,seats, o.totalDueAmount, trans.departureDate, u.fname, u.lname, u.username) from TripOrder o join o.trip t join o.transportation trans join o.user u join o.seats seats join t.locations location where trans.departureDate between   :from and :to", Object[].class).setParameter("from",from).setParameter("to",to).getResultList();
     }
 
     public List<Object[]> getTripOrdersForUserInTimeWindow(Integer userId, LocalDate from, LocalDate to){
-        return em.createQuery("select new com.shahyasni.persistence.DTOs.UserTrips(location ,seats, o.totalDueAmount, trans.departureDate, u.fname, u.lname, u.username) from TripOrder o join o.trip t join o.transportation trans join o.user u join o.seats seats join t.locations location  where u.id = :userId and trans.departureDate between   :from and :to", Object[].class).setParameter("userId", userId).setParameter("from",from).setParameter("to",to).getResultList();
+        return em.createQuery("select new com.shahyasni.persistence.DTOs.UserTrips(o.id,location ,seats, o.totalDueAmount, trans.departureDate, u.fname, u.lname, u.username) from TripOrder o join o.trip t join o.transportation trans join o.user u join o.seats seats join t.locations location  where u.id = :userId and trans.departureDate between   :from and :to", Object[].class).setParameter("userId", userId).setParameter("from",from).setParameter("to",to).getResultList();
     }
 
     public void updateTripOrder(TripOrderDTO tripOrderDTO){
@@ -198,6 +198,7 @@ public class UserDao implements Serializable{
     public List<PrivatePropertyReservation> getUserPrivatePropertyInTimeWindow(Integer userId , LocalDate from, LocalDate to){
         return em.createQuery("select r from PrivatePropertyReservation r join r.privateProperty l join r.user u where u.id= :userId and r.fromDate = :from and r.toDate = :to",PrivatePropertyReservation.class).setParameter("userId", userId).setParameter("from",from).setParameter("to",to).getResultList();
     }
+
 
     public PrivatePropertyReservation updatePrivatePropertyReservation(ReservationDTO reservationDTO){
 

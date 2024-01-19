@@ -12,20 +12,20 @@ public class Address {
     @Column(name = "Block")
     private String block;
 
-    @Column(name = "Sight")
-    private String sight;
+    @Column(name = "Landmark")
+    private String landmark;
 
 
     public String getStreet() { return street; }
-    public String getSight() { return sight; };
+    public String getLandmark() { return landmark; };
 
 
     public void setStreet(String street) {
         this.street = street;
     }
 
-    public void setSight(String landscape) {
-        this.sight = landscape;
+    public void setLandscape(String landmark) {
+        this.landmark = landmark;
     }
 
     public String getBlock() {

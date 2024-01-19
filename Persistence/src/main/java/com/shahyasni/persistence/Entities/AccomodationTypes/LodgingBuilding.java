@@ -36,8 +36,6 @@ public class LodgingBuilding{
     @JsonbTransient
     private List<LodgingBuildingPhotos> photos = new ArrayList<>();
 
-
-
     @Column(name = "LodgingBuildingType")
     private LodgingBuildingType lodgingBuildingType;
 
@@ -46,14 +44,14 @@ public class LodgingBuilding{
     private List<LodgingBuildingReservation> lodgingBuildingReservations = new ArrayList<>();
 
     @Embedded
-    private LodgingBuildingFacilities lodgingBuildingFacilities;
+    private LodgingBuildingBenefits lodgingBuildingBenefits;
 
     @Embedded
-    private RoomFacilities roomFacilities;
+    private RoomBenefits roomBenefits;
 
     @OneToMany(mappedBy = "lodgingBuilding")
     @JsonbTransient
-    private List<LodgingBuildingAdditionalFacilities> lodgingBuildingAdditionalFacilities = new ArrayList<>();
+    private List<LodgingBuildingAdditionalBenefits> lodgingBuildingAdditionalBenefits = new ArrayList<>();
 
     @Column(name = "CheckoutTime")
     private LocalTime checkout;
@@ -132,20 +130,20 @@ public class LodgingBuilding{
     }
 
 
-    public LodgingBuildingFacilities getLodgingBuildingFacilities() {
-        return lodgingBuildingFacilities;
+    public LodgingBuildingBenefits getLodgingBuildingBenefits() {
+        return lodgingBuildingBenefits;
     }
 
-    public void setLodgingBuildingFacilities(LodgingBuildingFacilities lodgingBuildingFacilities) {
-        this.lodgingBuildingFacilities = lodgingBuildingFacilities;
+    public void setLodgingBuildingBenefits(LodgingBuildingBenefits lodgingBuildingBenefits) {
+        this.lodgingBuildingBenefits = lodgingBuildingBenefits;
     }
 
-    public RoomFacilities getRoomFacilities() {
-        return roomFacilities;
+    public RoomBenefits getRoomBenefits() {
+        return roomBenefits;
     }
 
-    public void setRoomFacilities(RoomFacilities roomFacilities) {
-        this.roomFacilities = roomFacilities;
+    public void setRoomBenefits(RoomBenefits roomBenefits) {
+        this.roomBenefits = roomBenefits;
     }
 
 
@@ -263,12 +261,12 @@ public class LodgingBuilding{
         this.name = name;
     }
 
-    public List<LodgingBuildingAdditionalFacilities> getLodgingBuildingAdditionalFacilities() {
-        return lodgingBuildingAdditionalFacilities;
+    public List<LodgingBuildingAdditionalBenefits> getLodgingBuildingAdditionalBenefits() {
+        return lodgingBuildingAdditionalBenefits;
     }
 
-    public void setLodgingBuildingAdditionalFacilities(List<LodgingBuildingAdditionalFacilities> lodgingBuildingAdditionalFacilities) {
-        this.lodgingBuildingAdditionalFacilities = lodgingBuildingAdditionalFacilities;
+    public void setLodgingBuildingAdditionalBenefits(List<LodgingBuildingAdditionalBenefits> lodgingBuildingAdditionalBenefits) {
+        this.lodgingBuildingAdditionalBenefits = lodgingBuildingAdditionalBenefits;
     }
 
 

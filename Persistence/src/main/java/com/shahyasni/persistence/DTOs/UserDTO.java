@@ -56,8 +56,6 @@ public class UserDTO {
         this.password = password;
         this.age = age;
         this.address = address;
-//        this.lodgingBuildingReservations = lodgingBuildingReservations;
-//        this.privatePropertyReservations = privatePropertyReservations;
 
     }
 
@@ -118,73 +116,6 @@ public class UserDTO {
     }
 
 
-
-
-
-//    public List<LodgingBuildingReservation> getLodgingBuildingReservations() {
-//        return lodgingBuildingReservations;
-//    }
-//
-//    public void setLodgingBuildingReservations(List<LodgingBuildingReservation> lodgingBuildingReservations) {
-//        this.lodgingBuildingReservations = lodgingBuildingReservations;
-//    }
-//
-//    public List<PrivatePropertyReservation> getPrivatePropertyReservations() {
-//        return privatePropertyReservations;
-//    }
-//
-//    public void setPrivatePropertyReservations(List<PrivatePropertyReservation> privatePropertyReservations) {
-//        this.privatePropertyReservations = privatePropertyReservations;
-//    }
-
-
-//    public List<TripOrder> getTripsOrders() {
-//        return tripsOrders;
-//    }
-//
-//     public void setTripsOrders(List<TripOrder> tripsOrders) {
-//        this.tripsOrders = tripsOrders;
-//    }
-//
-//    public List<UserBankAccount> getUserBankAccounts() {
-//        return userBankAccounts;
-//    }
-//
-//    public void setUserBankAccounts(List<UserBankAccount> userBankAccounts) {
-//        this.userBankAccounts = userBankAccounts;
-//    }
-//
-//    public List<Transportation> getTransportation() {
-//        return transportation;
-//    }
-//
-//    public void setTransportation(List<Transportation> transportation) {
-//        this.transportation = transportation;
-//    }
-//
-//    public List<LodgingBuildingComments> getLodgingBuildingcomments() {
-//        return lodgingBuildingcomments;
-//    }
-//
-//    public void setLodgingBuildingcomments(List<LodgingBuildingComments> lodgingBuildingcomments) {
-//        this.lodgingBuildingcomments = lodgingBuildingcomments;
-//    }
-//
-//    public List<PrivatePropertyComments> getPrivatePropertyComments() {
-//        return privatePropertyComments;
-//    }
-//
-//    public void setPrivatePropertyComments(List<PrivatePropertyComments> privatePropertyComments) {
-//        this.privatePropertyComments = privatePropertyComments;
-//    }
-//
-//    public List<CompanyComments> getCompanyComments() {
-//        return companyComments;
-//    }
-//
-//    public void setCompanyComments(List<CompanyComments> companyComments) {
-//        this.companyComments = companyComments;
-//    }
 
     public Integer getId() {
         return id;

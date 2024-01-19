@@ -9,6 +9,7 @@ import com.shahyasni.persistence.Entities.User;
 import java.time.LocalDate;
 
 public class ReservationDTO {
+
     private Integer reservationId;
     private Integer noOfSingleRooms;
     private Integer noOfDoubleRooms;
@@ -81,7 +82,7 @@ public class ReservationDTO {
         lodgingBuildingReservation.setNoOfSingleRooms(this.noOfSingleRooms);
         lodgingBuildingReservation.setNoOfDoubleRooms(this.noOfDoubleRooms);
         lodgingBuildingReservation.setNoOfTripleRooms(this.noOfTripleRooms);
-        lodgingBuildingReservation.setPrice(this.calculateLodgingReservationPrice(lodgingBuilding));
+        lodgingBuildingReservation.setTotalDuePrice(this.calculateLodgingReservationPrice(lodgingBuilding));
         lodgingBuildingReservation.setFromDate(this.fromDate);
         lodgingBuildingReservation.setToDate(this.toDate);
         lodgingBuildingReservation.setLodgingBuilding(lodgingBuilding);
@@ -100,7 +101,7 @@ public class ReservationDTO {
         privatePropertyReservation.setNoOfSingleRooms(this.noOfSingleRooms);
         privatePropertyReservation.setNoOfDoubleRooms(this.noOfDoubleRooms);
         privatePropertyReservation.setNoOfTripleRooms(this.noOfTripleRooms);
-        privatePropertyReservation.setPrice(this.calculatePrivateReservationPrice(privateProperty));
+        privatePropertyReservation.setTotalDuePrice(this.calculatePrivateReservationPrice(privateProperty));
         privatePropertyReservation.setFromDate(this.fromDate);
         privatePropertyReservation.setToDate(this.toDate);
         privatePropertyReservation.setPrivateProperty(privateProperty);

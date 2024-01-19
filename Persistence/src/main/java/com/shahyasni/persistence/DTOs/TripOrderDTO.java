@@ -94,7 +94,7 @@ public class TripOrderDTO {
     public TripOrder setTripOrderEntity(TripOrder tripOrder,User user,Transportation transportation,Trip trip,Object reservation){
         tripOrder.setId(this.getTripOrderId());
         tripOrder.setOrderCreationDate(this.getOrderCreationDate());
-        tripOrder.setTotalDueAmount(this.getTotalDueAmount());
+        tripOrder.setTotalDueAmount(this.calculateTotalDueAmount(trip));
         tripOrder.setTrip(trip);
         tripOrder.setUser(user);
         tripOrder.setTransportation(transportation);
@@ -111,6 +111,9 @@ public class TripOrderDTO {
     }
 
 
+    public double calculateTotalDueAmount(Trip trip){
+        return this.seats.size() * trip.getPrice();
+    }
 
 }
 

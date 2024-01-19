@@ -13,6 +13,8 @@ public class TripOrderDetails {
     private Location location;
     private Integer seats;
     private String transportationCompany;
+
+    private String pickUpLocation;
     private LocalDate departureDate;
     private LocalTime departureTime;
     private LocalDate arrivalDate;
@@ -21,13 +23,14 @@ public class TripOrderDetails {
     private String lodgingBuildingName;
 
 
-    public TripOrderDetails(Integer id, String userName, String tripDetails ,Location location, Integer seats, String transportationCompany, LocalDate departureDate, LocalTime departureTime, LocalDate arrivalDate, LocalTime arrivalTime, double dueAmmount, String lodgingBuildingName){
+    public TripOrderDetails(Integer id, String userName, String tripDetails ,Location location, Integer seats, String transportationCompany,String pickUpLocation, LocalDate departureDate, LocalTime departureTime, LocalDate arrivalDate, LocalTime arrivalTime, double dueAmmount, String lodgingBuildingName){
         this.id = id;
         this.userName = userName;
         this.tripDetails = tripDetails;
         this.location = location;
         this.seats = seats;
         this.transportationCompany = transportationCompany;
+        this.pickUpLocation = pickUpLocation;
         this.departureDate = departureDate;
         this.departureTime = departureTime;
         this.arrivalDate = arrivalDate;
@@ -134,5 +137,13 @@ public class TripOrderDetails {
 
     public void setSeats(Integer seats) {
         this.seats = seats;
+    }
+
+    public String getPickUpLocation() {
+        return pickUpLocation;
+    }
+
+    public void setPickUpLocation(String pickUpLocation) {
+        this.pickUpLocation = pickUpLocation;
     }
 }

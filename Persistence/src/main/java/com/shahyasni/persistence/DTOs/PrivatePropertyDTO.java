@@ -4,11 +4,13 @@ import com.shahyasni.persistence.Entities.*;
 import com.shahyasni.persistence.Entities.AccomodationTypes.PrivateProperty;
 
 import java.beans.ConstructorProperties;
+import java.util.List;
 
 public class PrivatePropertyDTO {
 
 
     private Integer id;
+    private String name;
     private Integer PropertyOwnerId;
     private Integer noOfSingleRooms;
     private Integer noOfDoubleRooms;
@@ -18,7 +20,8 @@ public class PrivatePropertyDTO {
     private double tripleRoomPrice;
     private double rating;
     private String buildingType;
-    private RoomFacilities roomFacilities;
+    private List<String> Benefits;
+    private RoomBenefits roomBenefits;
     private Integer locationId;
     private Address address;
 
@@ -85,12 +88,12 @@ public class PrivatePropertyDTO {
         PropertyOwnerId = propertyOwnerId;
     }
 
-    public RoomFacilities getRoomFacilities() {
-        return roomFacilities;
+    public RoomBenefits getRoomBenefits() {
+        return roomBenefits;
     }
 
-    public void setRoomFacilities(RoomFacilities roomFacilities) {
-        this.roomFacilities = roomFacilities;
+    public void setRoomBenefits(RoomBenefits roomBenefits) {
+        this.roomBenefits = roomBenefits;
     }
 
     public Integer getLocationId() {
@@ -101,21 +104,7 @@ public class PrivatePropertyDTO {
         this.locationId = locationId;
     }
 
-    public PrivateProperty toPrivatePropertyEntity(PrivateProperty privateProperty, Owner owner, Location location){
-        privateProperty.setPropertyOwner(owner);
-        privateProperty.setSingleRoomPrice(this.singleRoomPrice);
-        privateProperty.setDoubleRoomsPrice(this.doubleRoomPrice);
-        privateProperty.setTripleRoomsPrice(this.tripleRoomPrice);
-        privateProperty.setRating(this.rating);
-        privateProperty.setBuildingType(this.buildingType);
-        privateProperty.setSingleRoomsMax(this.noOfSingleRooms);
-        privateProperty.setDoubleRoomsMax(this.noOfDoubleRooms);
-        privateProperty.setTripleRoomsMax(this.noOfTripleRooms);
-        privateProperty.setRoomFacilities(this.roomFacilities);
-        privateProperty.setLocation(location);
-        privateProperty.setAddress(this.address);
-        return privateProperty;
-    }
+
 
     public Integer getId() {
         return id;
@@ -156,4 +145,44 @@ public class PrivatePropertyDTO {
     public void setTripleRoomPrice(double tripleRoomPrice) {
         this.tripleRoomPrice = tripleRoomPrice;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public List<String> getBenefits(){
+        return this.Benefits;
+    }
+    public void setBenefits(List<String> benefits) {
+        this.Benefits = benefits;
+    }
+    public PrivateProperty toPrivatePropertyEntity(PrivateProperty privateProperty, Owner owner, Location location){
+        privateProperty.setName(this.name);
+        privateProperty.setPropertyOwner(owner);
+        privateProperty.setSingleRoomPrice(this.singleRoomPrice);
+        privateProperty.setDoubleRoomsPrice(this.doubleRoomPrice);
+        privateProperty.setTripleRoomsPrice(this.tripleRoomPrice);
+        privateProperty.setRating(this.rating);
+        privateProperty.setSingleRoomsMax(this.noOfSingleRooms);
+        privateProperty.setDoubleRoomsMax(this.noOfDoubleRooms);
+        privateProperty.setTripleRoomsMax(this.noOfTripleRooms);
+        this.setBenefits(privateProperty);
+        privateProperty.setRoomBenefits(this.roomBenefits);
+        privateProperty.setLocation(location);
+        privateProperty.setAddress(this.address);
+        return privateProperty;
+    }
+
+    public void setBenefits(PrivateProperty privateProperty){
+        for(int i = 0; i<this.Benefits.size(); i++ ){
+            PrivatePropertyBenefits benefits = new PrivatePropertyBenefits();
+            benefits.setProperty(privateProperty);
+            benefits.setFacility(this.Benefits.get(i));
+        }
+    }
+
 }

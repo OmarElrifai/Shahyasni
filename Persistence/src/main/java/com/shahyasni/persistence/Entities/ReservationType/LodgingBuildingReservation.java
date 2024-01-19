@@ -17,8 +17,7 @@ public class LodgingBuildingReservation extends Reservations {
     @JoinColumn(name = "LodgingBuilding")
     private LodgingBuilding lodgingBuilding;
 
-    @Column(name = "NoOfRooms")
-    private Integer noOfRooms;
+
 
 
     public User getUser() {
@@ -37,11 +36,5 @@ public class LodgingBuildingReservation extends Reservations {
         this.lodgingBuilding = lodgingBuilding;
     }
 
-    public Integer getNoOfRooms() {
-        return noOfRooms;
-    }
 
-    public void setNoOfRooms(Integer noOfRooms) {
-        this.noOfRooms = noOfRooms;
-    }
 }

@@ -12,13 +12,13 @@ public class Reservations implements Serializable {
     private Integer id;
 
     @Column(name = "SingleRooms")
-    private double noOfSingleRooms;
+    private Integer noOfSingleRooms;
 
     @Column(name = "DoubleRooms")
-    private double noOfDoubleRooms;
+    private Integer noOfDoubleRooms;
 
     @Column(name = "TripleRooms")
-    private double noOfTripleRooms;
+    private Integer noOfTripleRooms;
 
     @Column(name = "FromDate")
     private LocalDate fromDate;
@@ -26,8 +26,8 @@ public class Reservations implements Serializable {
     @Column(name = "ToDate")
     private LocalDate toDate;
 
-    @Column(name = "Price")
-    private double price;
+    @Column(name = "TotalDueAmount")
+    private double totalDuePrice;
 
     public Reservations(){
 
@@ -38,11 +38,11 @@ public class Reservations implements Serializable {
         this.id = id;
     }
 
-    public double getNoOfSingleRooms() {
+    public Integer getNoOfSingleRooms() {
         return noOfSingleRooms;
     }
 
-    public void setNoOfSingleRooms(double totalDueAmount) {
+    public void setNoOfSingleRooms(Integer totalDueAmount) {
         this.noOfSingleRooms = totalDueAmount;
     }
 
@@ -62,27 +62,27 @@ public class Reservations implements Serializable {
         this.toDate = toDate;
     }
 
-    public double getNoOfDoubleRooms() {
+    public Integer getNoOfDoubleRooms() {
         return noOfDoubleRooms;
     }
 
-    public void setNoOfDoubleRooms(double noOfDoubleRooms) {
+    public void setNoOfDoubleRooms(Integer noOfDoubleRooms) {
         this.noOfDoubleRooms = noOfDoubleRooms;
     }
 
-    public double getNoOfTripleRooms() {
+    public Integer getNoOfTripleRooms() {
         return noOfTripleRooms;
     }
 
-    public void setNoOfTripleRooms(double noOfTripleRooms) {
+    public void setNoOfTripleRooms(Integer noOfTripleRooms) {
         this.noOfTripleRooms = noOfTripleRooms;
     }
 
-    public double getPrice() {
-        return price;
+    public double getTotalDuePrice() {
+        return totalDuePrice;
     }
 
-    public void setPrice(double price) {
-        this.price = price;
+    public void setTotalDuePrice(double totalDuePrice) {
+        this.totalDuePrice = totalDuePrice;
     }
 }

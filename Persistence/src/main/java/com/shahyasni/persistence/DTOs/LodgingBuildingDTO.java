@@ -17,8 +17,8 @@ public class LodgingBuildingDTO {
     private double doubleRoomPrice;
     private double tripleRoomPrice;
     private LodgingBuildingType lodgingBuildingType;
-    private  LodgingBuildingFacilities lodgingBuildingFacilities;
-    private RoomFacilities roomFacilities;
+    private LodgingBuildingBenefits lodgingBuildingBenefits;
+    private RoomBenefits roomBenefits;
     private LocalTime checkout;
     private Integer singleRoomsMax;
     private Integer doubleRoomsMax;
@@ -110,20 +110,20 @@ public class LodgingBuildingDTO {
         this.foodQuality = foodQuality;
     }
 
-    public LodgingBuildingFacilities getLodgingBuildingFacilities() {
-        return lodgingBuildingFacilities;
+    public LodgingBuildingBenefits getLodgingBuildingBenefits() {
+        return lodgingBuildingBenefits;
     }
 
-    public void setLodgingBuildingFacilities(LodgingBuildingFacilities lodgingBuildingFacilities) {
-        this.lodgingBuildingFacilities = lodgingBuildingFacilities;
+    public void setLodgingBuildingBenefits(LodgingBuildingBenefits lodgingBuildingBenefits) {
+        this.lodgingBuildingBenefits = lodgingBuildingBenefits;
     }
 
-    public RoomFacilities getRoomFacilities() {
-        return roomFacilities;
+    public RoomBenefits getRoomBenefits() {
+        return roomBenefits;
     }
 
-    public void setRoomFacilities(RoomFacilities roomFacilities) {
-        this.roomFacilities = roomFacilities;
+    public void setRoomBenefits(RoomBenefits roomBenefits) {
+        this.roomBenefits = roomBenefits;
     }
 
     public LocalTime getCheckout() {
@@ -182,8 +182,8 @@ public class LodgingBuildingDTO {
         lodgingBuilding.setDoubleRoomsPrice(this.doubleRoomPrice);
         lodgingBuilding.setTripleRoomsPrice(this.tripleRoomPrice);
         lodgingBuilding.setLodgingBuildingType(this.lodgingBuildingType);
-        lodgingBuilding.setLodgingBuildingFacilities(this.lodgingBuildingFacilities);
-        lodgingBuilding.setRoomFacilities(this.roomFacilities);
+        lodgingBuilding.setLodgingBuildingBenefits(this.lodgingBuildingBenefits);
+        lodgingBuilding.setRoomBenefits(this.roomBenefits);
         lodgingBuilding.setCheckout(this.checkout);
         lodgingBuilding.setSingleRoomsMax(this.singleRoomsMax);
         lodgingBuilding.setDoubleRoomsMax(this.doubleRoomsMax);

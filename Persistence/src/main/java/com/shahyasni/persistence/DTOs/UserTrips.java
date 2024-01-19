@@ -6,6 +6,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 public class UserTrips {
+    private Integer id;
     private String fname;
     private String lname;
     private String username;
@@ -15,7 +16,8 @@ public class UserTrips {
     private LocalDate departureDate;
 
 
-    public UserTrips(Location locations,Integer seats, double price, LocalDate departureDate, String fname, String lname, String username) {
+    public UserTrips(Integer id,Location locations,Integer seats, double price, LocalDate departureDate, String fname, String lname, String username) {
+        this.id = id;
         this.locations = locations;
         this.seats = seats;
         this.price = price;
@@ -80,5 +82,13 @@ public class UserTrips {
 
     public void setSeats(Integer seats) {
         this.seats = seats;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 }

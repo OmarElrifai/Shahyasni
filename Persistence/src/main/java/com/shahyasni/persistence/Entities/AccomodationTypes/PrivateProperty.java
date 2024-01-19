@@ -2,11 +2,10 @@ package com.shahyasni.persistence.Entities.AccomodationTypes;
 
 import com.shahyasni.persistence.Entities.*;
 import com.shahyasni.persistence.Entities.CommentsEntities.PrivatePropertyComments;
-import com.shahyasni.persistence.Entities.PrivatePropertyFacilities;
 import com.shahyasni.persistence.Entities.Owner;
 import com.shahyasni.persistence.Entities.PropertyPhotosEntities.PrivatePropertyPhotos;
 import com.shahyasni.persistence.Entities.ReservationType.PrivatePropertyReservation;
-import com.shahyasni.persistence.Entities.RoomFacilities;
+import com.shahyasni.persistence.Entities.RoomBenefits;
 import com.shahyasni.persistence.Entities.SupportingDocsEntities.PrivatePropertySupportingDocs;
 
 import javax.json.bind.annotation.JsonbTransient;
@@ -22,6 +21,9 @@ public class PrivateProperty{
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Integer id;
 
+    @Column(name = "Name")
+    private String name;
+
     @ManyToOne
     @JoinColumn(name = "Owner")
     private Owner owner;
@@ -36,7 +38,8 @@ public class PrivateProperty{
 
     @OneToMany(mappedBy = "property")
     @JsonbTransient
-    private List<PrivatePropertyFacilities> facilities = new ArrayList<>();
+    private List<PrivatePropertyBenefits> benefits = new ArrayList<>();
+
 
     @OneToMany(mappedBy = "property")
     @JsonbTransient
@@ -50,8 +53,6 @@ public class PrivateProperty{
     @Column(name = "Rating")
     private double rating;
 
-    @Column(name = "BuildingType")
-    private String buildingType;
 
     @Column(name = "SingleRoomsMax")
     private Integer singleRoomsMax;
@@ -71,8 +72,6 @@ public class PrivateProperty{
     private double tripleRoomsPrice;
 
 
-    @Embedded
-    private RoomFacilities roomFacilities;
 
     @ManyToOne
     @JoinColumn(name = "Location")
@@ -103,12 +102,12 @@ public class PrivateProperty{
         this.rating = rating;
     }
 
-    public List<PrivatePropertyFacilities> getFacilities() {
-        return facilities;
+    public List<PrivatePropertyBenefits> getBenefits() {
+        return benefits;
     }
 
-    public void setFacilities(List<PrivatePropertyFacilities> facilities) {
-        this.facilities = facilities;
+    public void setBenefits(List<PrivatePropertyBenefits> benefits) {
+        this.benefits = benefits;
     }
 
     public List<PrivatePropertyComments> getComments() {
@@ -135,14 +134,6 @@ public class PrivateProperty{
         this.location = location;
     }
 
-    public RoomFacilities getRoomFacilities() {
-        return roomFacilities;
-    }
-
-    public void setRoomFacilities(RoomFacilities roomFacilities) {
-        this.roomFacilities = roomFacilities;
-    }
-
     public List<PrivatePropertyPhotos> getPrivatePropertyPhotos() {
         return privatePropertyPhotos;
     }
@@ -157,14 +148,6 @@ public class PrivateProperty{
 
     public void setPropertyOwner(Owner owner) {
         this.owner = owner;
-    }
-
-    public String getBuildingType() {
-        return buildingType;
-    }
-
-    public void setBuildingType(String buildingType) {
-        this.buildingType = buildingType;
     }
 
 
@@ -232,5 +215,13 @@ public class PrivateProperty{
 
     public void setTripleRoomsPrice(double tripleRoomsPrice) {
         this.tripleRoomsPrice = tripleRoomsPrice;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

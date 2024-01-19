@@ -224,6 +224,8 @@ public class UserResources {
         return Response.ok().entity(userDao.getUserPrivatePropertyInTimeWindow(searchRequest.getId(),searchRequest.getFrom(),searchRequest.getTo())).build();
     }
 
+
+
     @PUT
     @Path("updatePropertyReservation")
     @Consumes(MediaType.APPLICATION_JSON)

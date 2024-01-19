@@ -1,6 +1,7 @@
 package com.shahyasni.persistence.DAOs;
 
 import com.shahyasni.persistence.DTOs.PrivatePropertyDTO;
+import com.shahyasni.persistence.DTOs.ReservationDTO;
 import com.shahyasni.persistence.Entities.AccomodationTypes.PrivateProperty;
 import com.shahyasni.persistence.Entities.Location;
 import com.shahyasni.persistence.Entities.Owner;
@@ -8,6 +9,7 @@ import com.shahyasni.persistence.Entities.Owner;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import java.util.List;
 
 public class PrivatePropertyDao {
 
@@ -23,6 +25,15 @@ public class PrivatePropertyDao {
         PrivateProperty privateProperty  = new PrivateProperty();
         em.persist(privatePropertyDTO.toPrivatePropertyEntity(privateProperty, owner,location));
     }
+
+//    public Boolean checkPrivatePropertyReservationAvailability(ReservationDTO reservationDTO){
+//        if(reservationDTO.getNoOfSingleRooms()>0){
+//            List<Integer> singleRooms = em.createQuery("select p.singleRoomsMax from PrivateProperty p where p.id = :id",Integer.class).setParameter("id",reservationDTO.getAccomodationId()).getResultList();
+//
+//        }
+//    }
+
+
 
 //    public List<PrivateProperty> getLodgingBuilding(String name){
 //        return em.createQuery("select l from LodgingBuilding l where l.name = :name",LodgingBuilding.class).setParameter("name",name).getResultList();

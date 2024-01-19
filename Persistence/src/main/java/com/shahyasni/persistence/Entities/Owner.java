@@ -1,5 +1,6 @@
 package com.shahyasni.persistence.Entities;
 
+import com.shahyasni.persistence.Entities.AccomodationTypes.LodgingBuilding;
 import com.shahyasni.persistence.Entities.AccomodationTypes.PrivateProperty;
 
 import javax.json.bind.annotation.JsonbTransient;
@@ -23,16 +24,27 @@ public class Owner implements Serializable {
     @Column(name = "LastName")
     private String lastName;
 
-    @OneToMany(mappedBy = "propertyOwner")
+    @OneToMany(mappedBy = "owner")
     @JsonbTransient
     private List<PrivateProperty> privateProperties;
 
+    @OneToMany(mappedBy = "owner")
+    @JsonbTransient
+    private List<LodgingBuilding> lodgingBuildings;
 
-    @Embedded
-    private Address address;
 
+    @Column(name = "Street")
+    private String street;
 
+    @Column(name = "Block")
+    private String block;
 
+    @Column(name = "Landmark")
+    private String landmark;
+
+    @ManyToOne
+    @JoinColumn(name = "City")
+    private City city;
 
     public Integer getId() { return id; }
 
@@ -68,5 +80,45 @@ public class Owner implements Serializable {
 
     public void setPrivateProperties(List<PrivateProperty> privateProperties) {
         this.privateProperties = privateProperties;
+    }
+
+    public List<LodgingBuilding> getLodgingBuildings() {
+        return lodgingBuildings;
+    }
+
+    public void setLodgingBuildings(List<LodgingBuilding> lodgingBuildings) {
+        this.lodgingBuildings = lodgingBuildings;
+    }
+
+    public String getStreet() {
+        return street;
+    }
+
+    public void setStreet(String street) {
+        this.street = street;
+    }
+
+    public String getBlock() {
+        return block;
+    }
+
+    public void setBlock(String block) {
+        this.block = block;
+    }
+
+    public String getLandmark() {
+        return landmark;
+    }
+
+    public void setLandmark(String landmark) {
+        this.landmark = landmark;
+    }
+
+    public City getCity() {
+        return city;
+    }
+
+    public void setCity(City city) {
+        this.city = city;
     }
 }

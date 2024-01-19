@@ -1,14 +1,14 @@
 package com.shahyasni.persistence;
 
-import com.shahyasni.persistence.DTOs.SearchRequest;
-import com.shahyasni.persistence.Enums.FacilitiesChoiceList;
-
-import java.time.LocalDate;
+import com.shahyasni.persistence.Enums.AccomodationType;
 
 public class test {
     public static void main(String[] arg){
-        FacilitiesChoiceList fac = FacilitiesChoiceList.freeWifi;
-        System.out.println(fac.getFacilityValue());
+//        FacilitiesChoiceList fac = FacilitiesChoiceList.values();
+        for(AccomodationType c:AccomodationType.values()){
+            System.out.println(c);
+
+        }
 
     }
 }
