@@ -1,0 +1,7 @@
+* Shahyasni is a an application that enables it's user to discover new places and travel to beautiful sights. 
+
+* Users can choose a place to go, view all available trips and book a trip. All listed trips include transportations and accomodation. Users can also choose a specific hotel/camp that he or she desires. 
+
+* Users can also choose a specific activity, diving for instance, and the application will list all   sights that have this activity available in it with all the trips to this sights
+
+* the project is still in the developement phase as I 'm still working on the APIs 

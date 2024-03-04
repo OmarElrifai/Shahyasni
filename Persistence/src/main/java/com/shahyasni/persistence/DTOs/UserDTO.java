@@ -23,6 +23,9 @@ public class UserDTO {
     private String username;
 
     private String password;
+    private String newPassword;
+
+    private  String salt;
 
     private Integer age;
 
@@ -46,8 +49,8 @@ public class UserDTO {
 //
 //    private List<CompanyComments> companyComments ;
 
-    @ConstructorProperties({"id","fname","mname","lname","username","password","age","address"})
-    public UserDTO(Integer id, String fname, String mname, String lname, String username, String password, Integer age, String address){
+    @ConstructorProperties({"id","fname","mname","lname","username","age","address"})
+    public UserDTO(Integer id, String fname, String mname, String lname, String username, Integer age, String address){
         this.id = id;
         this.fname = fname;
         this.mname = mname;
@@ -56,7 +59,7 @@ public class UserDTO {
         this.password = password;
         this.age = age;
         this.address = address;
-
+        this.salt = salt;
     }
 
     public String getFname() {
@@ -126,17 +129,19 @@ public class UserDTO {
     }
 
     public static UserDTO toUserModel(User user){
-        return new UserDTO(user.getId(),user.getfname(), user.getMname(), user.getlname(), user.getUsername(), user.getPassword(), user.getAge(),user.getAddress());
+        return new UserDTO(user.getId(),user.getfname(), user.getMname(), user.getlname(), user.getUsername(), user.getAge(),user.getAddress());
     }
 
 
 
     public User setUserEntity(User user){
+        User userEntity = new User();
         user.setfname(this.fname);
         user.setMname(this.mname);
         user.setlname(this.lname);
         user.setUsername(this.username);
         user.setPassword(this.password);
+        user.setSalt(this.salt);
         user.setAddress(this.address);
         user.setAge(this.age);
 //        user.setLodgingBuildingReservations(this.lodgingBuildingReservations);
@@ -149,4 +154,19 @@ public class UserDTO {
     }
 
 
+    public String getSalt() {
+        return salt;
+    }
+
+    public void setSalt(String salt) {
+        this.salt = salt;
+    }
+
+    public String getNewPassword() {
+        return newPassword;
+    }
+
+    public void setNewPassword(String newPassword) {
+        this.newPassword = newPassword;
+    }
 }

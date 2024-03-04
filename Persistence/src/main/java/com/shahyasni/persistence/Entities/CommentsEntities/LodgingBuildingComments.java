@@ -4,6 +4,7 @@ import com.shahyasni.persistence.Entities.Comments;
 import com.shahyasni.persistence.Entities.AccomodationTypes.LodgingBuilding;
 import com.shahyasni.persistence.Entities.User;
 
+import javax.json.bind.annotation.JsonbTransient;
 import javax.persistence.*;
 
 @Entity
@@ -17,6 +18,7 @@ public class LodgingBuildingComments extends Comments {
 
     @ManyToOne
     @JoinColumn(name = "LodgingBuilding")
+    @JsonbTransient
     private LodgingBuilding lodgingBuilding;
 
 

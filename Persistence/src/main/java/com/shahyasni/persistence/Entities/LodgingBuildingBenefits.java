@@ -1,74 +1,71 @@
 package com.shahyasni.persistence.Entities;
 
+import com.shahyasni.persistence.Entities.AccomodationTypes.LodgingBuilding;
+import com.shahyasni.persistence.Enums.BenefitType;
 
-import javax.persistence.Column;
-import javax.persistence.Embeddable;
+import javax.json.bind.annotation.JsonbTransient;
+import javax.persistence.*;
+import java.io.Serializable;
 
-@Embeddable
-public class LodgingBuildingBenefits {
-    @Column(name = "FreeWifi")
-    private boolean freeWifi;
+@Entity
+public class LodgingBuildingBenefits implements Serializable {
 
-    @Column(name = "FreeParkingLot")
-    private boolean freeParkingLot;
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    private Integer id;
 
-    @Column(name = "AirportShuttle")
-    private boolean airportShuttle;
+    @Column(name = "BenefitType")
+    private BenefitType benefitType;
 
-    @Column(name = "FamilyRooms")
-    private boolean familyRooms;
+    @ManyToOne
+    @JoinColumn(name = "LodgingBuildingId")
+    @JsonbTransient
+    private LodgingBuilding lodgingBuilding;
 
-    @Column(name = "RoomService")
-    private boolean roomService;
+    @Column(name = "Benefit")
+    private String benefit;
 
-    @Column(name = "NonSmokingRooms")
-    private boolean nonSmokingRooms;
-
-    public boolean isFreeWifi() {
-        return freeWifi;
+    @Column(name = "Highlighted")
+    private Boolean highlighted;
+    public Integer getId() {
+        return id;
     }
 
-    public void setFreeWifi(boolean freeWifi) {
-        this.freeWifi = freeWifi;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public boolean isFreeParkingLot() {
-        return freeParkingLot;
+    public BenefitType getBenefitType() {
+        return benefitType;
     }
 
-    public void setFreeParkingLot(boolean freeParkingLot) {
-        this.freeParkingLot = freeParkingLot;
+    public void setBenefitType(BenefitType benefitType) {
+        this.benefitType = benefitType;
     }
 
-    public boolean isAirportShuttle() {
-        return airportShuttle;
+    
+    public LodgingBuilding getLodgingBuilding() {
+        return lodgingBuilding;
     }
 
-    public void setAirportShuttle(boolean airportShuttle) {
-        this.airportShuttle = airportShuttle;
+    public void setLodgingBuilding(LodgingBuilding lodgingBuilding) {
+        this.lodgingBuilding = lodgingBuilding;
     }
 
-    public boolean isFamilyRooms() {
-        return familyRooms;
+
+    public String getBenefit() {
+        return benefit;
     }
 
-    public void setFamilyRooms(boolean familyRooms) {
-        this.familyRooms = familyRooms;
+    public void setBenefit(String benefit) {
+        this.benefit = benefit;
     }
 
-    public boolean isRoomService() {
-        return roomService;
+    public Boolean getHighlighted() {
+        return highlighted;
     }
 
-    public void setRoomService(boolean roomService) {
-        this.roomService = roomService;
-    }
-
-    public boolean isNonSmokingRooms() {
-        return nonSmokingRooms;
-    }
-
-    public void setNonSmokingRooms(boolean nonSmokingRooms) {
-        this.nonSmokingRooms = nonSmokingRooms;
+    public void setHighlighted(Boolean highlighted) {
+        this.highlighted = highlighted;
     }
 }

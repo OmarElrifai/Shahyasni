@@ -24,7 +24,7 @@ public class Address {
         this.street = street;
     }
 
-    public void setLandscape(String landmark) {
+    public void setLandmark(String landmark) {
         this.landmark = landmark;
     }
 

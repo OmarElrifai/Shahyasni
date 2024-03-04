@@ -36,10 +36,16 @@ public class User implements Serializable {
     private String lname;
 
     @Column(name = "Username",unique = true)
+    @JsonbTransient
     private String username;
 
     @Column(name = "Password")
+    @JsonbTransient
     private String password;
+
+    @Column(name = "salt")
+    @JsonbTransient
+    private String salt;
 
     @Column(name = "Age")
     private Integer age;
@@ -217,6 +223,14 @@ public class User implements Serializable {
 
     public void setTripsOrders(List<TripOrder> tripsOrders) {
         this.tripsOrders = tripsOrders;
+    }
+
+    public String getSalt() {
+        return salt;
+    }
+
+    public void setSalt(String salt) {
+        this.salt = salt;
     }
 
 //    public void setTripsOrders(List<TripOrder> tripsOrders){

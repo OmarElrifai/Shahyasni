@@ -1,0 +1,937 @@
+{
+	"info": {
+		"_postman_id": "722c8d58-aac0-4c79-8546-96dcf2796f4b",
+		"name": "Shahyasni APIs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "14772004"
+	},
+	"item": [
+		{
+			"name": "Persistence-1.0-SNAPSHOT.war",
+			"item": [
+				{
+					"name": "getLodgingBuildingsAvailable",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"accomodationType\":\"Camp\",\r\n    \"toDate\":\"2023-12-09\",\r\n    \"fromDate\":\"2023-12-12\",\r\n    \"noOfSingleRooms\":3,\r\n    \"noOfDoubleRooms\":4,\r\n    \"noOfTripleRooms\":3\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{accommodationResource}}/getLodgingBuilding",
+							"host": [
+								"{{accommodationResource}}"
+							],
+							"path": [
+								"getLodgingBuilding"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createLodgingBuilding",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":null,\r\n    \"owner\":1,\r\n\"name\": \"Paradice\",\r\n\"address\": {\r\n    \"street\":\"Share3 el mamasha\",\r\n    \"block\":138,\r\n    \"landmark\":\"lagouna\"\r\n},\r\n\"singleRoomPrice\": 500,\r\n\"doubleRoomPrice\": 800,\r\n\"tripleRoomPrice\": 1000,\r\n\"lodgingBuildingType\": \"Hotel\",\r\n\"benefits\":null,\r\n\"lodgingBuildingBenefits\": [\r\n    {\r\n        \"benefitType\":\"publicFacility\",\r\n        \"benefit\":\"Free Wifi\"\r\n    }\r\n],\r\n\"checkout\": \"12:30:30\",\r\n\"singleRoomsMax\": 50,\r\n\"doubleRoomsMax\": 50,\r\n\"tripleRoomsMax\": 50,\r\n\"hotelDescription\": \"hotelDescription\",\r\n\"cleanliness\": 5,\r\n\"roomService\": 5,\r\n\"reception\": 5,\r\n\"foodQuality\": 5,\r\n\"locationId\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{accommodationResource}}/createLodgingBuilding",
+							"host": [
+								"{{accommodationResource}}"
+							],
+							"path": [
+								"createLodgingBuilding"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createPrivateProperty",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":null,\r\n\"name\": \"Paradice\",\r\n\"address\": {\r\n    \"street\":\"Share3 el mamasha\",\r\n    \"block\":138,\r\n    \"landmark\":\"lagouna\"\r\n},\r\n\"singleRoomPrice\": 500,\r\n\"doubleRoomPrice\": 800,\r\n\"tripleRoomPrice\": 1000,\r\n\"lodgingBuildingType\": \"Hotel\",\r\n\"privatePropertyBenefits\": [\r\n    {\r\n        \"benefitType\":\"publicFacility\",\r\n        \"benefit\":\"Free Wifi\"\r\n    }\r\n],\r\n\"checkout\": \"12:30:30\",\r\n\"singleRoomsMax\": 50,\r\n\"doubleRoomsMax\": 50,\r\n\"tripleRoomsMax\": 50,\r\n\"rating\": 5,\r\n\"locationId\": 1,\r\n\"location\":null,\r\n\"comments\":null,\r\n\"benefits\":null,\r\n\"ownerId\":1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{accommodationResource}}/createPrivateProperty",
+							"host": [
+								"{{accommodationResource}}"
+							],
+							"path": [
+								"createPrivateProperty"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getLodgingBuildings",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"city\":\"Dahab\",\n    \"sight\":\"Mamsha\" \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{locationResource}}/getLodgingBuildings",
+							"host": [
+								"{{locationResource}}"
+							],
+							"path": [
+								"getLodgingBuildings"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getPrivateProperty",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"city\":\"Dahab\",\n    \"sight\":\"Mamsha\" \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{locationResource}}/getPrivateProperty",
+							"host": [
+								"{{locationResource}}"
+							],
+							"path": [
+								"getPrivateProperty"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "inserUser",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"fname\":\"Mariam\",\n    \"mname\":\"Salman\",\n    \"lname\":\"Wageeh\",\n    \"username\":\"mariam@gmail.com\",\n    \"password\":\"123456\",\n    \"age\":24,\n    \"address\":\"Cairo\"\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{userResource}}/Insert",
+					"host": [
+						"{{userResource}}"
+					],
+					"path": [
+						"Insert"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getUser",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{userResource}}/getUser?id=1",
+					"host": [
+						"{{userResource}}"
+					],
+					"path": [
+						"getUser"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getUserByUsername",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{userResource}}/getUserByUsername?username=mariam@gmail.com",
+					"host": [
+						"{{userResource}}"
+					],
+					"path": [
+						"getUserByUsername"
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": "mariam@gmail.com"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getAllUsers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{userResource}}/getAllUsers",
+					"host": [
+						"{{userResource}}"
+					],
+					"path": [
+						"getAllUsers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateUser",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\":20,\n    \"fname\":\"Mariam\",\n    \"mname\":\"Salman\",\n    \"lname\":\"Wageeh\",\n    \"username\":\"mariam20@gmail.com\",\n    \"password\":\"123456\",\n    \"age\":24,\n    \"address\":\"Cairo\"\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{userResource}}/updateUser",
+					"host": [
+						"{{userResource}}"
+					],
+					"path": [
+						"updateUser"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addBankAccount",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \n        \"accountNo\":\"140232020828\",\n        \"userId\":20\n        \n    \n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{userResource}}/addBankAccount",
+					"host": [
+						"{{userResource}}"
+					],
+					"path": [
+						"addBankAccount"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getBankAccountsForUser",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{userResource}}/getBankAccountsForUser?userId=20",
+					"host": [
+						"{{userResource}}"
+					],
+					"path": [
+						"getBankAccountsForUser"
+					],
+					"query": [
+						{
+							"key": "userId",
+							"value": "20"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateBankAccountsForUser",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"bankAccountId\":5,\n        \"accountNo\":\"436727182\",\n        \"userId\":1\n        \n    \n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{userResource}}/updateBankAccountsForUser",
+					"host": [
+						"{{userResource}}"
+					],
+					"path": [
+						"updateBankAccountsForUser"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "removeBankAccountsForUser",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{userResource}}/removeBankAccountsForUser?bankAccountId=7",
+					"host": [
+						"{{userResource}}"
+					],
+					"path": [
+						"removeBankAccountsForUser"
+					],
+					"query": [
+						{
+							"key": "bankAccountId",
+							"value": "7"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "reserveLodgingAccomodation",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"totalDueAmount\":600,\n    \"fromDate\":\"2023-08-10\",\n    \"toDate\":\"2023-08-15\",\n    \"userId\":20,\n    \"accomodationId\":1,\n    \"noOfRooms\":2\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{userResource}}/reserveLodgingAccomodation",
+					"host": [
+						"{{userResource}}"
+					],
+					"path": [
+						"reserveLodgingAccomodation"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getLodgingReservationForUser",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{userResource}}/getLodgingReservationForUser?userId=20",
+					"host": [
+						"{{userResource}}"
+					],
+					"path": [
+						"getLodgingReservationForUser"
+					],
+					"query": [
+						{
+							"key": "userId",
+							"value": "20"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getLodgingReservationInTimeWindow",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"from\":\"2023-08-10\",\n    \"to\":\"2023-08-15\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{userResource}}/getLodgingReservationInTimeWindow",
+					"host": [
+						"{{userResource}}"
+					],
+					"path": [
+						"getLodgingReservationInTimeWindow"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getUserLodgingReservationInTimeWindow",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"from\":\"2023-08-04\",\n    \"to\":\"2023-08-07\",\n    \"id\":1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{userResource}}/getUserLodgingReservationInTimeWindow",
+					"host": [
+						"{{userResource}}"
+					],
+					"path": [
+						"getUserLodgingReservationInTimeWindow"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateLodgingReservation",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"reservationId\":8,\n    \"totalDueAmount\":500,\n    \"fromDate\":\"2023-08-04\",\n    \"toDate\":\"2023-08-07\",\n    \"userId\":1,\n    \"lodgingBuildingId\":2,\n    \"noOfRooms\":1,\n    \"accomodationId\":1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{userResource}}/updateLodgingReservation",
+					"host": [
+						"{{userResource}}"
+					],
+					"path": [
+						"updateLodgingReservation"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "removeLodgingReservation",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{userResource}}/removeLodgingReservation?reservationId=23",
+					"host": [
+						"{{userResource}}"
+					],
+					"path": [
+						"removeLodgingReservation"
+					],
+					"query": [
+						{
+							"key": "reservationId",
+							"value": "23"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "reservePrivateProperty",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"totalDueAmount\":500,\n    \"fromDate\":\"2023-08-09\",\n    \"toDate\":\"2023-08-11\",\n    \"userId\":20,\n    \"accomodationId\":1,\n    \"noOfRooms\":15\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{userResource}}/reservePrivateProperty",
+					"host": [
+						"{{userResource}}"
+					],
+					"path": [
+						"reservePrivateProperty"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getPropertyReservationForUser",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{userResource}}/getPropertyReservationForUser?userId=20",
+					"host": [
+						"{{userResource}}"
+					],
+					"path": [
+						"getPropertyReservationForUser"
+					],
+					"query": [
+						{
+							"key": "userId",
+							"value": "20"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getPropertyInTimeWindow",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"from\":\"2023-08-09\",\n    \"to\":\"2023-08-11\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{userResource}}/getPropertyInTimeWindow",
+					"host": [
+						"{{userResource}}"
+					],
+					"path": [
+						"getPropertyInTimeWindow"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getUserPropertyInTimeWindow",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\":20,\n    \"from\":\"2023-08-06\",\n    \"to\":\"2023-08-08\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{userResource}}/getUserPropertyInTimeWindow",
+					"host": [
+						"{{userResource}}"
+					],
+					"path": [
+						"getUserPropertyInTimeWindow"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updatePropertyReservation",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"reservationId\":24,\n    \"totalDueAmount\":500,\n    \"fromDate\":\"2023-08-06\",\n    \"toDate\":\"2023-08-08\",\n    \"userId\":20,\n    \"accomodationId\":1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{userResource}}/updatePropertyReservation",
+					"host": [
+						"{{userResource}}"
+					],
+					"path": [
+						"updatePropertyReservation"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "removePropertyReservation",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{userResource}}/removePropertyReservation?reservationId=25",
+					"host": [
+						"{{userResource}}"
+					],
+					"path": [
+						"removePropertyReservation"
+					],
+					"query": [
+						{
+							"key": "reservationId",
+							"value": "25"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createTripOrder",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"userId\":20,\n    \"tripId\":1,\n    \"transportationId\":1,\n    \"seats\":[30],\n    \"orderCreationDate\":\"2023-08-19\",\n    \"totalDueAmount\":2700,\n    \"isLodgingBuildingReservation\":false,\n    \"accomodationReservationId\":24\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{userResource}}/createTripOrder",
+					"host": [
+						"{{userResource}}"
+					],
+					"path": [
+						"createTripOrder"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getTripOrdersForUser",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{userResource}}/getTripOrdersForUser?userId=20",
+					"host": [
+						"{{userResource}}"
+					],
+					"path": [
+						"getTripOrdersForUser"
+					],
+					"query": [
+						{
+							"key": "userId",
+							"value": "20"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getTripOrderForLodgingBuilding",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{userResource}}/getTripOrderForLodgingBuilding?orderId=26",
+					"host": [
+						"{{userResource}}"
+					],
+					"path": [
+						"getTripOrderForLodgingBuilding"
+					],
+					"query": [
+						{
+							"key": "orderId",
+							"value": "26"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getTripOrderForPrivateProperty",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{userResource}}/getTripOrderForPrivateProperty?orderId=26",
+					"host": [
+						"{{userResource}}"
+					],
+					"path": [
+						"getTripOrderForPrivateProperty"
+					],
+					"query": [
+						{
+							"key": "orderId",
+							"value": "26"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getTripOrdersInTimeWindow",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"from\":\"2021-08-03\",\n    \"to\":\"2021-08-05\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{userResource}}/getTripOrdersInTimeWindow",
+					"host": [
+						"{{userResource}}"
+					],
+					"path": [
+						"getTripOrdersInTimeWindow"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getTripOrdersForUserInTimeWindow",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\":1,\n    \"from\":\"2021-08-03\",\n    \"to\":\"2021-08-05\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{userResource}}/getTripOrdersForUserInTimeWindow",
+					"host": [
+						"{{userResource}}"
+					],
+					"path": [
+						"getTripOrdersForUserInTimeWindow"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateTripOrder",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"tripOrderId\":26,\n    \"userId\":20,\n    \"tripId\":1,\n    \"transportationId\":1,\n    \"seats\":[26],\n    \"orderCreationDate\":\"2025-02-01\",\n    \"totalDueAmount\":2000,\n    \"isLodgingBuildingReservation\":false,\n    \"accomodationReservationId\":24\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{userResource}}/updateTripOrder",
+					"host": [
+						"{{userResource}}"
+					],
+					"path": [
+						"updateTripOrder"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteTripOrder",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{userResource}}/deleteTripOrder?tripOrderId=16",
+					"host": [
+						"{{userResource}}"
+					],
+					"path": [
+						"deleteTripOrder"
+					],
+					"query": [
+						{
+							"key": "tripOrderId",
+							"value": "16"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createLocation",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"cityId\":1,\n    \"sight\":\"Canyon\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{locationResource}}/createLocation",
+					"host": [
+						"{{locationResource}}"
+					],
+					"path": [
+						"createLocation"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getLocations",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{locationResource}}/getLocations?activity=Sea Sports",
+					"host": [
+						"{{locationResource}}"
+					],
+					"path": [
+						"getLocations"
+					],
+					"query": [
+						{
+							"key": "activity",
+							"value": "Sea Sports"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getActivities",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"city\":\"Dahab\",\n    \"sight\":\"Blue Hole\" \n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{locationResource}}/getActivities",
+					"host": [
+						"{{locationResource}}"
+					],
+					"path": [
+						"getActivities"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

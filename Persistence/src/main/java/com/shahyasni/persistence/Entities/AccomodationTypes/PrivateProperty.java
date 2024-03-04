@@ -7,9 +7,11 @@ import com.shahyasni.persistence.Entities.PropertyPhotosEntities.PrivateProperty
 import com.shahyasni.persistence.Entities.ReservationType.PrivatePropertyReservation;
 import com.shahyasni.persistence.Entities.RoomBenefits;
 import com.shahyasni.persistence.Entities.SupportingDocsEntities.PrivatePropertySupportingDocs;
+import com.shahyasni.persistence.Enums.PrivatePropertyType;
 
 import javax.json.bind.annotation.JsonbTransient;
 import javax.persistence.*;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,6 +26,12 @@ public class PrivateProperty{
     @Column(name = "Name")
     private String name;
 
+    @Column(name = "PrivatePropertyType")
+    private PrivatePropertyType privatePropertyType;
+
+    @Column(name = "Description")
+    private String description;
+
     @ManyToOne
     @JoinColumn(name = "Owner")
     private Owner owner;
@@ -32,6 +40,8 @@ public class PrivateProperty{
     @JsonbTransient
     private List<PrivatePropertySupportingDocs> supportingDocuments = new ArrayList<>();
 
+    @Column(name = "Checkout")
+    private LocalTime checkout;
     @OneToMany(mappedBy = "privateProperty")
     @JsonbTransient
     private List<PrivatePropertyPhotos> privatePropertyPhotos = new ArrayList<>();
@@ -39,7 +49,6 @@ public class PrivateProperty{
     @OneToMany(mappedBy = "property")
     @JsonbTransient
     private List<PrivatePropertyBenefits> benefits = new ArrayList<>();
-
 
     @OneToMany(mappedBy = "property")
     @JsonbTransient
@@ -223,5 +232,29 @@ public class PrivateProperty{
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public PrivatePropertyType getPrivatePropertyType() {
+        return privatePropertyType;
+    }
+
+    public void setPrivatePropertyType(PrivatePropertyType privatePropertyType) {
+        this.privatePropertyType = privatePropertyType;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public LocalTime getCheckout() {
+        return checkout;
+    }
+
+    public void setCheckout(LocalTime checkout) {
+        this.checkout = checkout;
     }
 }

@@ -16,7 +16,6 @@ public class AccomodationItems {
     private double tripleRoomPrice;
     private double rating;
     private List<String> benefits;
-    private RoomBenefits roomBenefits;
     private Integer locationId;
 
     public AccomodationItems(Integer id, String name, Integer PropertyOwnerId, Integer noOfSingleRooms, Integer noOfDoubleRooms, Integer noOfTripleRooms, double singleRoomPrice, double doubleRoomPrice, double tripleRoomPrice, double rating, List<String> benefits, RoomBenefits roomBenefits, Integer locationId){
@@ -31,7 +30,6 @@ public class AccomodationItems {
         this.tripleRoomPrice = tripleRoomPrice;
         this.rating = rating;
         this.benefits = benefits;
-        this.roomBenefits = roomBenefits;
         this.locationId = locationId;
     }
     public Integer getId() {
@@ -120,14 +118,6 @@ public class AccomodationItems {
 
     public void setBenefits(List<String> benefits) {
         this.benefits = benefits;
-    }
-
-    public RoomBenefits getRoomBenefits() {
-        return roomBenefits;
-    }
-
-    public void setRoomBenefits(RoomBenefits roomBenefits) {
-        this.roomBenefits = roomBenefits;
     }
 
     public Integer getLocationId() {

@@ -1,4 +1,4 @@
-package com.shahyasni.ShahYasniResources;
+package com.shahyasni.shahYasniResources;
 
 public class OwnerResources {
 

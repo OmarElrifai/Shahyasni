@@ -21,7 +21,8 @@ public class LodgingBuilding{
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Integer id;
 
-    @Column(name = "Name")
+
+    @Column(name = "Name",unique = true)
     private String name;
 
     @ManyToOne
@@ -43,15 +44,10 @@ public class LodgingBuilding{
     @JsonbTransient
     private List<LodgingBuildingReservation> lodgingBuildingReservations = new ArrayList<>();
 
-    @Embedded
-    private LodgingBuildingBenefits lodgingBuildingBenefits;
-
-    @Embedded
-    private RoomBenefits roomBenefits;
 
     @OneToMany(mappedBy = "lodgingBuilding")
     @JsonbTransient
-    private List<LodgingBuildingAdditionalBenefits> lodgingBuildingAdditionalBenefits = new ArrayList<>();
+    private List<LodgingBuildingBenefits> lodgingBuildingBenefits = new ArrayList<>();
 
     @Column(name = "CheckoutTime")
     private LocalTime checkout;
@@ -75,6 +71,10 @@ public class LodgingBuilding{
 
     @Column(name = "HotelDescription")
     private String hotelDescription;
+
+
+    @Column(name = "Rating")
+    private double rating;
 
     @Column(name = "Cleanliness")
     private double cleanliness;
@@ -127,23 +127,6 @@ public class LodgingBuilding{
 
     public void setSingleRoomPrice(double price) {
         this.singleRoomPrice = price;
-    }
-
-
-    public LodgingBuildingBenefits getLodgingBuildingBenefits() {
-        return lodgingBuildingBenefits;
-    }
-
-    public void setLodgingBuildingBenefits(LodgingBuildingBenefits lodgingBuildingBenefits) {
-        this.lodgingBuildingBenefits = lodgingBuildingBenefits;
-    }
-
-    public RoomBenefits getRoomBenefits() {
-        return roomBenefits;
-    }
-
-    public void setRoomBenefits(RoomBenefits roomBenefits) {
-        this.roomBenefits = roomBenefits;
     }
 
 
@@ -261,12 +244,12 @@ public class LodgingBuilding{
         this.name = name;
     }
 
-    public List<LodgingBuildingAdditionalBenefits> getLodgingBuildingAdditionalBenefits() {
-        return lodgingBuildingAdditionalBenefits;
+    public List<LodgingBuildingBenefits> getLodgingBuildingBenefits() {
+        return lodgingBuildingBenefits;
     }
 
-    public void setLodgingBuildingAdditionalBenefits(List<LodgingBuildingAdditionalBenefits> lodgingBuildingAdditionalBenefits) {
-        this.lodgingBuildingAdditionalBenefits = lodgingBuildingAdditionalBenefits;
+    public void setLodgingBuildingBenefits(List<LodgingBuildingBenefits> lodgingBuildingBenefits) {
+        this.lodgingBuildingBenefits = lodgingBuildingBenefits;
     }
 
 
@@ -308,5 +291,13 @@ public class LodgingBuilding{
 
     public void setOwner(Owner owner) {
         this.owner = owner;
+    }
+
+    public double getRating() {
+        return rating;
+    }
+
+    public void setRating(double rating) {
+        this.rating = rating;
     }
 }

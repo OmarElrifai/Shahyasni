@@ -1,4 +1,4 @@
-package com.shahyasni.ShahYasniResources;
+package com.shahyasni.shahYasniResources;
 
 import com.shahyasni.persistence.DAOs.LocationDao;
 import com.shahyasni.persistence.DTOs.LocationDTO;
@@ -35,16 +35,6 @@ public class LocationResources {
     public Response getLocations(@QueryParam("activity") String activity){
        return Response.ok().entity(locationDao.getLocations(activity)).build();
     }
-
-
-
-//    @POST
-//    @Path("/getTrips")
-//    @Consumes(MediaType.APPLICATION_JSON)
-//    @Produces(MediaType.APPLICATION_JSON)
-//    public Response getTrips(SearchRequest searchRequest){
-//       return Response.ok().entity(locationDao.getTrips(searchRequest)).build();
-//    }
 
 
     @POST
@@ -87,4 +77,15 @@ public class LocationResources {
     }
 
 
+    @DELETE
+    @Path("/deleteLocations")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getLocations(@QueryParam("locationId") Integer locationId){
+        try {
+            locationDao.removeLocation(locationId);
+            return Response.ok().entity("Success").build();
+        }catch (Exception err){
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(err.getMessage()).build();
+        }
+    }
 }

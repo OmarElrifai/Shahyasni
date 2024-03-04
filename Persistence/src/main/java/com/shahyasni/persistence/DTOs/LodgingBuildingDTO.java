@@ -6,6 +6,8 @@ import com.shahyasni.persistence.Enums.LodgingBuildingType;
 
 import java.beans.ConstructorProperties;
 import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.List;
 
 public class LodgingBuildingDTO {
 
@@ -13,11 +15,12 @@ public class LodgingBuildingDTO {
     private String name;
     private Address address;
 
+    private Integer ownerId;
     private double singleRoomPrice;
     private double doubleRoomPrice;
     private double tripleRoomPrice;
     private LodgingBuildingType lodgingBuildingType;
-    private LodgingBuildingBenefits lodgingBuildingBenefits;
+    private List<LodgingBuildingBenefits> lodgingBuildingBenefits;
     private RoomBenefits roomBenefits;
     private LocalTime checkout;
     private Integer singleRoomsMax;
@@ -29,9 +32,14 @@ public class LodgingBuildingDTO {
     private double reception;
     private double foodQuality;
     private Integer locationId;
+    private LodgingBuildingBenefits benefits;
+    private Location location;
 
-    @ConstructorProperties({"name","address","singleRoomPrice","doubleRoomPrice","tripleRoomPrice","lodgingBuildingType","hotelDescription","cleanliness","roomService","reception","foodQuality"})
-    public LodgingBuildingDTO(String name, Address address,double singleRoomPrice, double doubleRoomPrice,double tripleRoomPrice, LodgingBuildingType lodgingBuildingType, String hotelDescription, double cleanliness, double roomService, double reception, double foodQuality){
+    private Comments comments;
+
+    @ConstructorProperties({"id","name","address","singleRoomPrice","doubleRoomPrice","tripleRoomPrice","lodgingBuildingType","hotelDescription","cleanliness","roomService","reception","foodQuality","benefits","ownerId","comments","location"})
+    public LodgingBuildingDTO(Integer id,String name, Address address,double singleRoomPrice, double doubleRoomPrice,double tripleRoomPrice, LodgingBuildingType lodgingBuildingType, String hotelDescription, double cleanliness, double roomService, double reception, double foodQuality,LodgingBuildingBenefits benefits, Integer ownerId,Comments comments,Location location ){
+    this.id = id;
     this.name = name;
     this.address = address;
     this.singleRoomPrice = singleRoomPrice;
@@ -43,6 +51,10 @@ public class LodgingBuildingDTO {
     this.roomService = roomService;
     this.reception = reception;
     this.foodQuality = foodQuality;
+    this.benefits = benefits;
+    this.ownerId = ownerId;
+    this.comments = comments;
+    this.location = location;
     }
 
     public Integer getId() {
@@ -110,11 +122,11 @@ public class LodgingBuildingDTO {
         this.foodQuality = foodQuality;
     }
 
-    public LodgingBuildingBenefits getLodgingBuildingBenefits() {
+    public List<LodgingBuildingBenefits> getLodgingBuildingBenefits() {
         return lodgingBuildingBenefits;
     }
 
-    public void setLodgingBuildingBenefits(LodgingBuildingBenefits lodgingBuildingBenefits) {
+    public void setLodgingBuildingBenefits(List<LodgingBuildingBenefits> lodgingBuildingBenefits) {
         this.lodgingBuildingBenefits = lodgingBuildingBenefits;
     }
 
@@ -176,14 +188,12 @@ public class LodgingBuildingDTO {
 
 
 
-    public LodgingBuilding toLodgingBuildingEntity(LodgingBuilding lodgingBuilding, Location location){
+    public LodgingBuilding toLodgingBuildingEntity(LodgingBuilding lodgingBuilding, Location location,Owner owner){
         lodgingBuilding.setName(this.name);
         lodgingBuilding.setSingleRoomPrice(this.singleRoomPrice);
         lodgingBuilding.setDoubleRoomsPrice(this.doubleRoomPrice);
         lodgingBuilding.setTripleRoomsPrice(this.tripleRoomPrice);
         lodgingBuilding.setLodgingBuildingType(this.lodgingBuildingType);
-        lodgingBuilding.setLodgingBuildingBenefits(this.lodgingBuildingBenefits);
-        lodgingBuilding.setRoomBenefits(this.roomBenefits);
         lodgingBuilding.setCheckout(this.checkout);
         lodgingBuilding.setSingleRoomsMax(this.singleRoomsMax);
         lodgingBuilding.setDoubleRoomsMax(this.doubleRoomsMax);
@@ -194,10 +204,22 @@ public class LodgingBuildingDTO {
         lodgingBuilding.setReception(this.reception);
         lodgingBuilding.setFoodQuality(this.foodQuality);
         lodgingBuilding.setLocation(location);
+        lodgingBuilding.setOwner(owner);
         lodgingBuilding.setAddress(address);
         return lodgingBuilding;
     }
 
+    public List<LodgingBuildingBenefits> createLodgingBuildingBenefitsEntities(LodgingBuilding lodgingBuilding){
+        List<LodgingBuildingBenefits> lodgingBuildingBenefitsEntities = new ArrayList<>();
+        for (LodgingBuildingBenefits lodgingBuildingBenefit : this.lodgingBuildingBenefits) {
+            LodgingBuildingBenefits benefitEntity = new LodgingBuildingBenefits();
+            benefitEntity.setBenefitType(lodgingBuildingBenefit.getBenefitType());
+            benefitEntity.setBenefit(lodgingBuildingBenefit.getBenefit());
+            benefitEntity.setLodgingBuilding(lodgingBuilding);
+            lodgingBuildingBenefitsEntities.add(benefitEntity);
+        }
+        return lodgingBuildingBenefitsEntities;
+    }
 
     public double getSingleRoomPrice() {
         return singleRoomPrice;
@@ -221,5 +243,37 @@ public class LodgingBuildingDTO {
 
     public void setTripleRoomPrice(double tripleRoomPrice) {
         this.tripleRoomPrice = tripleRoomPrice;
+    }
+
+    public LodgingBuildingBenefits getBenefits() {
+        return benefits;
+    }
+
+    public void setBenefits(LodgingBuildingBenefits benefits) {
+        this.benefits = benefits;
+    }
+
+    public Integer getOwnerId() {
+        return ownerId;
+    }
+
+    public void setOwnerId(Integer ownerId) {
+        this.ownerId = ownerId;
+    }
+
+    public Comments getComments() {
+        return comments;
+    }
+
+    public void setComments(Comments comments) {
+        this.comments = comments;
+    }
+
+    public Location getLocation() {
+        return location;
+    }
+
+    public void setLocation(Location location) {
+        this.location = location;
     }
 }

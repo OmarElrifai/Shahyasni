@@ -1,16 +1,14 @@
-package com.shahyasni.ShahYasniResources;
+package com.shahyasni.shahYasniResources;
 
 import com.shahyasni.persistence.DAOs.UserDao;
 import com.shahyasni.persistence.DTOs.*;
-import com.shahyasni.persistence.Entities.ReservationType.PrivatePropertyReservation;
-import com.shahyasni.persistence.Entities.TripOrder;
+import com.shahyasni.persistence.DTOs.ReservationDTOs.ReservationDTO;
 import com.shahyasni.persistence.Entities.User;
 
 import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import java.time.LocalDate;
 import java.util.List;
 @Path("/User")
 public class UserResources {
@@ -22,10 +20,42 @@ public class UserResources {
     @Path("Insert")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response insertNewUser(User user){
+    public Response insertNewUser(UserDTO user){
         try {
             userDao.insertUser(user);
             return Response.ok("Success").build();
+        }catch (Exception err){
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(err.getMessage()).build();
+        }
+    }
+
+    @POST
+    @Path("login")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response login(UserDTO user){
+        try {
+            if(userDao.login(user.getUsername(),user.getPassword())){
+                return Response.ok("logged in successfully").build();
+            }else{
+                return Response.status(Response.Status.UNAUTHORIZED).entity("Invalid username or password").build();
+            }
+        }catch (Exception err){
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(err.getMessage()).build();
+        }
+    }
+
+    @POST
+    @Path("updatePassword")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response updatePassword(UserDTO user){
+        try {
+            if(userDao.updatePassword(user.getUsername(),user.getPassword(),user.getNewPassword()) == "Updated"){
+                return Response.ok("logged in successfully").build();
+            }else{
+                return Response.status(Response.Status.UNAUTHORIZED).entity("Invalid password").build();
+            }
         }catch (Exception err){
             return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(err.getMessage()).build();
         }
@@ -161,7 +191,7 @@ public class UserResources {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Response getUserLodgingReservationInTimeWindow(SearchRequest searchRequest){
-        return Response.ok().entity(userDao.getUserLodgingReservationInTimeWindow(searchRequest.getId(), searchRequest.getFrom(), searchRequest.getTo())).build();
+        return Response.ok().entity(userDao.getUserLodgingReservationInTimeWindow(searchRequest.getUserId(), searchRequest.getFrom(), searchRequest.getTo())).build();
     }
 
     @PUT
@@ -205,7 +235,7 @@ public class UserResources {
     @Path("getPropertyReservationForUser")
     @Produces(MediaType.APPLICATION_JSON)
     public Response getPrivatePropertyReservation(@QueryParam("userId") Integer userId){
-        return Response.ok().entity(userDao.getPrivatePropertyReservation(userId)).build();
+        return Response.ok().entity(userDao.getPrivatePropertyReservationsForUser(userId)).build();
     }
 
     @POST
@@ -221,7 +251,7 @@ public class UserResources {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Response getUserPrivatePropertyInTimeWindow(SearchRequest searchRequest){
-        return Response.ok().entity(userDao.getUserPrivatePropertyInTimeWindow(searchRequest.getId(),searchRequest.getFrom(),searchRequest.getTo())).build();
+        return Response.ok().entity(userDao.getUserPrivatePropertyInTimeWindow(searchRequest.getUserId(),searchRequest.getFrom(),searchRequest.getTo())).build();
     }
 
 
@@ -297,7 +327,7 @@ public class UserResources {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Response getTripOrdersForUserInTimeWindow(SearchRequest searchRequest){
-        return Response.ok().entity(userDao.getTripOrdersForUserInTimeWindow(searchRequest.getId(),searchRequest.getFrom(),searchRequest.getTo())).build();
+        return Response.ok().entity(userDao.getTripOrdersForUserInTimeWindow(searchRequest.getUserId(),searchRequest.getFrom(),searchRequest.getTo())).build();
     }
 
     @PUT

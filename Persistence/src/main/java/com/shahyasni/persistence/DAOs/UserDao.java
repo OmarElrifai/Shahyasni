@@ -1,20 +1,23 @@
 package com.shahyasni.persistence.DAOs;
 
 import com.shahyasni.persistence.DTOs.*;
+import com.shahyasni.persistence.DTOs.ReservationDTOs.ReservationDTO;
 import com.shahyasni.persistence.Entities.*;
 import com.shahyasni.persistence.Entities.AccomodationTypes.LodgingBuilding;
 import com.shahyasni.persistence.Entities.AccomodationTypes.PrivateProperty;
 import com.shahyasni.persistence.Entities.ReservationType.LodgingBuildingReservation;
 import com.shahyasni.persistence.Entities.ReservationType.PrivatePropertyReservation;
+import com.shahyasni.services.SecurityUtility;
 
 import javax.ejb.Stateless;
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-
+import java.util.Map;
 
 
 @Stateless
@@ -23,9 +26,18 @@ public class UserDao implements Serializable{
     @PersistenceContext
     private EntityManager em;
 
-    public void insertUser(User User){
-        em.persist(User);
+    @Inject
+    private SecurityUtility util;
+
+    public void insertUser(UserDTO user){
+
+        Map<String, String> hashPassword = util.hashPassword(user.getPassword());
+        user.setPassword(hashPassword.get("password"));
+        user.setSalt(hashPassword.get("salt"));
+        User userEntity = new User();
+        em.persist(user.setUserEntity(userEntity));
     }
+
 
 
     public UserDTO findUserById(Integer  ID){
@@ -34,10 +46,34 @@ public class UserDao implements Serializable{
 //        return em.find(User.class, ID);
     }
 
+
     public UserDTO findUserByUsername(String username){
         return UserDTO.toUserModel(em.createQuery("select u from User u where u.username = :username",User.class).setParameter("username",username).getSingleResult());
     }
+    public String updatePassword(String username,String password,String newPassword){
+        if(this.login(username,password)){
+            User user = this.findUserEntityByUsername(username);
+            Map<String,String> hashPassword = this.util.hashPassword(newPassword);
+            user.setPassword(hashPassword.get("password"));
+            user.setSalt(hashPassword.get("salt"));
+            em.merge(user);
+            return "Updated";
+        }else {
+            return "Invalid Password";
+        }
+    }
 
+
+
+    public Boolean login(String username,String password){
+        User user = this.findUserEntityByUsername(username);
+        return this.util.validatePassword(password,user.getSalt(),user.getPassword());
+    }
+
+
+    public User findUserEntityByUsername(String username){
+        return em.createQuery("select u from User u where u.username = :username",User.class).setParameter("username",username).getSingleResult();
+    }
 
     public List<UserDTO> findAllUsers(){
 
@@ -153,16 +189,16 @@ public class UserDao implements Serializable{
 
     }
 
-    public List<LodgingBuildingReservation> getLodgingReservationForUser(Integer userId){
-        return em.createQuery("select r from LodgingBuildingReservation r join r.lodgingBuilding l join r.user u where u.id= :userId",LodgingBuildingReservation.class).setParameter("userId", userId).getResultList();
+    public List<ReservationDTO> getLodgingReservationForUser(Integer userId){
+        return em.createQuery("select new com.shahyasni.persistence.DTOs.ReservationDTOs.ReservationDTO(r.id, r.noOfSingleRooms, r.noOfDoubleRooms, r.noOfTripleRooms, r.fromDate, r.toDate, u.id, l.id,l.name) from LodgingBuildingReservation r join r.lodgingBuilding l join r.user u where u.id= :userId",ReservationDTO.class).setParameter("userId", userId).getResultList();
     }
 
-    public List<LodgingBuildingReservation> getLodgingReservationInTimeWindow(LocalDate from, LocalDate to){
-        return em.createQuery("select r from LodgingBuildingReservation r join r.lodgingBuilding l join r.user u where r.fromDate = :from and r.toDate = :to",LodgingBuildingReservation.class).setParameter("from",from).setParameter("to",to).getResultList();
+    public List<ReservationDTO> getLodgingReservationInTimeWindow(LocalDate from, LocalDate to){
+        return em.createQuery("select new com.shahyasni.persistence.DTOs.ReservationDTOs.ReservationDTO(r.id, r.noOfSingleRooms, r.noOfDoubleRooms, r.noOfTripleRooms, r.fromDate, r.toDate, u.id, l.id,l.name) from LodgingBuildingReservation r join r.lodgingBuilding l join r.user u where r.fromDate = :from and r.toDate = :to",ReservationDTO.class).setParameter("from",from).setParameter("to",to).getResultList();
     }
 
-    public List<LodgingBuildingReservation> getUserLodgingReservationInTimeWindow(Integer userId , LocalDate from, LocalDate to){
-        return em.createQuery("select r from LodgingBuildingReservation r join r.lodgingBuilding l join r.user u where u.id= :userId and r.fromDate = :from and r.toDate = :to",LodgingBuildingReservation.class).setParameter("userId", userId).setParameter("from",from).setParameter("to",to).getResultList();
+    public List<ReservationDTO> getUserLodgingReservationInTimeWindow(Integer userId , LocalDate from, LocalDate to){
+        return em.createQuery("select new com.shahyasni.persistence.DTOs.ReservationDTOs.ReservationDTO(r.id, r.noOfSingleRooms, r.noOfDoubleRooms, r.noOfTripleRooms, r.fromDate, r.toDate, u.id, l.id,l.name) from LodgingBuildingReservation r join r.lodgingBuilding l join r.user u where u.id= :userId and r.fromDate = :from and r.toDate = :to",ReservationDTO.class).setParameter("userId", userId).setParameter("from",from).setParameter("to",to).getResultList();
     }
 
     public LodgingBuildingReservation updateLodgingReservation(ReservationDTO reservationDTO){
@@ -187,16 +223,16 @@ public class UserDao implements Serializable{
         }
     }
 
-    public List<PrivatePropertyReservation> getPrivatePropertyReservation(Integer userId){
-        return em.createQuery("select r from PrivatePropertyReservation r join r.privateProperty l join r.user u where u.id= :userId",PrivatePropertyReservation.class).setParameter("userId", userId).getResultList();
+    public List<ReservationDTO> getPrivatePropertyReservationsForUser(Integer userId){
+        return em.createQuery("select new com.shahyasni.persistence.DTOs.ReservationDTOs.ReservationDTO(r.id, r.noOfSingleRooms, r.noOfDoubleRooms, r.noOfTripleRooms, r.fromDate, r.toDate, u.id, p.id,p.name) from PrivatePropertyReservation r join r.privateProperty p join r.user u where u.id= :userId",ReservationDTO.class).setParameter("userId", userId).getResultList();
     }
 
-    public List<PrivatePropertyReservation> getPrivatePropertyInTimeWindow(LocalDate from, LocalDate to){
-        return em.createQuery("select r from PrivatePropertyReservation r join r.privateProperty l join r.user u where r.fromDate = :from and r.toDate = :to",PrivatePropertyReservation.class).setParameter("from",from).setParameter("to",to).getResultList();
+    public List<ReservationDTO> getPrivatePropertyInTimeWindow(LocalDate from, LocalDate to){
+        return em.createQuery("select new com.shahyasni.persistence.DTOs.ReservationDTOs.ReservationDTO(r.id, r.noOfSingleRooms, r.noOfDoubleRooms, r.noOfTripleRooms, r.fromDate, r.toDate, u.id, p.id,p.name) from PrivatePropertyReservation r join r.privateProperty p join r.user u where r.fromDate = :from and r.toDate = :to",ReservationDTO.class).setParameter("from",from).setParameter("to",to).getResultList();
     }
 
-    public List<PrivatePropertyReservation> getUserPrivatePropertyInTimeWindow(Integer userId , LocalDate from, LocalDate to){
-        return em.createQuery("select r from PrivatePropertyReservation r join r.privateProperty l join r.user u where u.id= :userId and r.fromDate = :from and r.toDate = :to",PrivatePropertyReservation.class).setParameter("userId", userId).setParameter("from",from).setParameter("to",to).getResultList();
+    public List<ReservationDTO> getUserPrivatePropertyInTimeWindow(Integer userId , LocalDate from, LocalDate to){
+        return em.createQuery("select new com.shahyasni.persistence.DTOs.ReservationDTOs.ReservationDTO(r.id, r.noOfSingleRooms, r.noOfDoubleRooms, r.noOfTripleRooms, r.fromDate, r.toDate, u.id, p.id,p.name) from PrivatePropertyReservation r join r.privateProperty p join r.user u where u.id= :userId and r.fromDate = :from and r.toDate = :to",ReservationDTO.class).setParameter("userId", userId).setParameter("from",from).setParameter("to",to).getResultList();
     }
 
 
