@@ -50,24 +50,13 @@ public class UserDao implements Serializable{
     public UserDTO findUserByUsername(String username){
         return UserDTO.toUserModel(em.createQuery("select u from User u where u.username = :username",User.class).setParameter("username",username).getSingleResult());
     }
-    public String updatePassword(String username,String password,String newPassword){
-        if(this.login(username,password)){
-            User user = this.findUserEntityByUsername(username);
-            Map<String,String> hashPassword = this.util.hashPassword(newPassword);
-            user.setPassword(hashPassword.get("password"));
-            user.setSalt(hashPassword.get("salt"));
-            em.merge(user);
-            return "Updated";
-        }else {
-            return "Invalid Password";
-        }
-    }
 
 
 
-    public Boolean login(String username,String password){
+
+    public UserDTO login(String username,String password){
         User user = this.findUserEntityByUsername(username);
-        return this.util.validatePassword(password,user.getSalt(),user.getPassword());
+        return UserDTO.toUserModel(user);
     }
 
 

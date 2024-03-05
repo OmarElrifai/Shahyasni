@@ -35,31 +35,15 @@ public class UserResources {
     @Produces(MediaType.APPLICATION_JSON)
     public Response login(UserDTO user){
         try {
-            if(userDao.login(user.getUsername(),user.getPassword())){
-                return Response.ok("logged in successfully").build();
-            }else{
-                return Response.status(Response.Status.UNAUTHORIZED).entity("Invalid username or password").build();
-            }
+
+            return Response.ok(userDao.login(user.getUsername(),user.getPassword())).build();
+
         }catch (Exception err){
             return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(err.getMessage()).build();
         }
     }
 
-    @POST
-    @Path("updatePassword")
-    @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
-    public Response updatePassword(UserDTO user){
-        try {
-            if(userDao.updatePassword(user.getUsername(),user.getPassword(),user.getNewPassword()) == "Updated"){
-                return Response.ok("logged in successfully").build();
-            }else{
-                return Response.status(Response.Status.UNAUTHORIZED).entity("Invalid password").build();
-            }
-        }catch (Exception err){
-            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(err.getMessage()).build();
-        }
-    }
+
 
     @GET
     @Path("getUser")

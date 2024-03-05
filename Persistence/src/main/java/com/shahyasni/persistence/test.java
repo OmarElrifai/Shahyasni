@@ -36,51 +36,6 @@ import static org.jose4j.keys.RsaKeyUtil.RSA;
 
 public class test {
     public static void main(String[] arg) throws JoseException, MalformedClaimException, NoSuchAlgorithmException, NoSuchProviderException, InvalidKeySpecException, IOException, JOSEException, ParseException {
-//        String fac = AccomodationType.privateProperty.name();
-//        String facValue = AccomodationType.privateProperty.getAcc();
-//        Map<String,String> facMap = new HashMap<String,String>();
-//        facMap.put(fac,facValue);
-//        for(AccomodationType c:AccomodationType.values()){
-//            System.out.println(c);
-//
-//        }
-//        for (Map.Entry<String,String> facMapItem : facMap.entrySet()){
-//            System.out.println(facMapItem.getKey());
-//            System.out.println(facMapItem.getValue());
-//
-//        }
-
-        SecureRandom random = new SecureRandom();
-        String key = "opopsoioieoewposkosdkopdskpopokepokdopkwopqdokpwpok";
-        byte[] sharedSecret = key.getBytes();
-        random.nextBytes(key.getBytes(StandardCharsets.UTF_8));
-
-        SecureRandom random1 = new SecureRandom();
-        String key1 = "opopsoioieoewposkosdkopdskpopokepokdopkwopqdokpwpok";
-        byte[] sharedSecret1 = key1.getBytes();
-        random.nextBytes(key.getBytes(StandardCharsets.UTF_8));
-
-// Create HMAC signer
-        JWSSigner signer = new MACSigner(sharedSecret);
-
-// Prepare JWS object with "Hello, world!" payload
-        JWSObject jwsObject = new JWSObject(new JWSHeader(JWSAlgorithm.HS256), new Payload("Hello, world!"));
-
-// Apply the HMAC
-        jwsObject.sign(signer);
-
-// To serialize to compact form, produces something like
-// eyJhbGciOiJIUzI1NiJ9.SGVsbG8sIHdvcmxkIQ.onO9Ihudz3WkiauDO2Uhyuz0Y18UASXlSc1eS0NkWyA
-        String s = jwsObject.serialize();
-
-// To parse the JWS and verify it, e.g. on client-side
-        jwsObject = JWSObject.parse(s);
-
-        JWSVerifier verifier = new MACVerifier(sharedSecret1);
-
-       System.out.println(jwsObject.verify(verifier));
-
-        System.out.println("Hello, world! "+ jwsObject.getPayload().toString());
-
+//       }
     }
 }
